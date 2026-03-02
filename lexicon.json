@@ -1,9 +1,9 @@
 animal
-bird
-worm
-fish
-snake
-dog
+bird = animal+sky
+worm = animal+earth+long+small
+fish = animal+water
+snake = animal+earth+long
+dog = animal+earth
 black
 white
 red
@@ -15,7 +15,7 @@ bad
 old
 young/new
 cold
-warm
+warm = hot + small
 hot
 wet
 dry
@@ -34,22 +34,24 @@ fresh
 first
 
 person
-man
-woman
-child
+male
+female
+man = person+male
+woman = person+female
+child = person+small
 spouse
-husband
-whife
+husband = spouse+male
+wife = spouse+female
 parent
-father
-mother
+father = parent+male
+mother = parent+female
 sibling
-brother
-older brother
-younger brother
-sister
-older sister
-younger sister
+brother = sibling+male
+older brother = sibling+male+old
+younger brother = sibling+male+young
+sister = sibling+female
+older sister = sibling+female+old
+younger sister = sibling+female+young
 
 head
 hair
@@ -110,18 +112,23 @@ salt
 rope
 road
 sand
+thing
+time
+place 
+reason
+method
 
-think
-see
-smell
-hear
-say
+think = head + -verb
+see = eye + -verb
+smell = nose + -verb
+hear = ear + -verb
+say = tongue + -verb
 give
 take
 live
 die
-eat
-drink
+eat = mouth + -verb
+drink = mouth + -verb
 breathe
 laugh
 blow
@@ -153,19 +160,20 @@ remove
 first person singular
 second person singular
 third person singular
-first person plural
-second person plural
-third person plural
+first person plural = first person singular + many
+second person plural = second person singular + many
+third person plural = third person singular + many
 
-what
-when
-where
-who
-how
-this
+what = thing + -complementizer
+when = time + -complementizer
+where = place + -complementizer
+who = person + -complementizer
+why = reason + -complementizer
+how = method + -complementizer
+this (determiner)
 that (determiner)
-there
-here
+there = that + place
+here = this + place
 and
 if
 because
@@ -178,6 +186,8 @@ many
 none
 that (complementizer)
 should
+to be
+to have
 
 learn
 video
@@ -189,3 +199,8 @@ phone
 exchange
 country
 repeat
+
+-complementizer: -n
+-noun: -a
+-verb: -e
+-adjective: -i

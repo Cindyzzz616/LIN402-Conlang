@@ -1,6 +1,7 @@
 {
   "noun": { "suffix": "-a" },
   "adjective": { "suffix": "-i" },
-  "verb": { "suffix": "-e" },
-  "complementizer": { "suffix": "-n" }
+  "verb": { "suffix": "-u" },
+  "complementizer": { "suffix": "-e" },
+  "adverb": { "suffix": "-o" }
 }

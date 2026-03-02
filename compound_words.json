@@ -1,0 +1,255 @@
+{
+  "bird": {
+    "lemma": "lun-nel-a",
+    "roots": {
+      "animal": "lun",
+      "sky": "nel"
+    }
+  },
+  "worm": {
+    "lemma": "lun-los-pot-kis-a",
+    "roots": {
+      "animal": "lun",
+      "dirt/earth": "los",
+      "long/tall": "pot",
+      "small": "kis"
+    }
+  },
+  "fish": {
+    "lemma": "lun-hol-a",
+    "roots": {
+      "animal": "lun",
+      "water": "hol"
+    }
+  },
+  "snake": {
+    "lemma": "lun-los-pot-a",
+    "roots": {
+      "animal": "lun",
+      "dirt/earth": "los",
+      "long/tall": "pot"
+    }
+  },
+  "dog": {
+    "lemma": "lun-los-a",
+    "roots": {
+      "animal": "lun",
+      "dirt/earth": "los"
+    }
+  },
+  "warm": {
+    "lemma": "mik-kis-i",
+    "roots": {
+      "hot": "mik",
+      "small": "kis"
+    }
+  },
+  "man": {
+    "lemma": "pih-sak-a",
+    "roots": {
+      "person": "pih",
+      "male": "sak"
+    }
+  },
+  "woman": {
+    "lemma": "pih-san-a",
+    "roots": {
+      "person": "pih",
+      "female": "san"
+    }
+  },
+  "child": {
+    "lemma": "pih-kis-a",
+    "roots": {
+      "person": "pih",
+      "small": "kis"
+    }
+  },
+  "husband": {
+    "lemma": "tih-sak-a",
+    "roots": {
+      "spouse": "tih",
+      "male": "sak"
+    }
+  },
+  "wife": {
+    "lemma": "tih-san-a",
+    "roots": {
+      "spouse": "tih",
+      "female": "san"
+    }
+  },
+  "father": {
+    "lemma": "pup-sak-a",
+    "roots": {
+      "parent": "pup",
+      "male": "sak"
+    }
+  },
+  "mother": {
+    "lemma": "pup-san-a",
+    "roots": {
+      "parent": "pup",
+      "female": "san"
+    }
+  },
+  "brother": {
+    "lemma": "tum-sak-a",
+    "roots": {
+      "sibling": "tum",
+      "male": "sak"
+    }
+  },
+  "older brother": {
+    "lemma": "tum-sak-les-a",
+    "roots": {
+      "sibling": "tum",
+      "male": "sak",
+      "old": "les"
+    }
+  },
+  "younger brother": {
+    "lemma": "tum-sak-lem-a",
+    "roots": {
+      "sibling": "tum",
+      "male": "sak",
+      "young/new": "lem"
+    }
+  },
+  "sister": {
+    "lemma": "tum-san-a",
+    "roots": {
+      "sibling": "tum",
+      "female": "san"
+    }
+  },
+  "older sister": {
+    "lemma": "tum-san-les-a",
+    "roots": {
+      "sibling": "tum",
+      "female": "san",
+      "old": "les"
+    }
+  },
+  "younger sister": {
+    "lemma": "tum-san-lem-a",
+    "roots": {
+      "sibling": "tum",
+      "female": "san",
+      "young/new": "lem"
+    }
+  },
+  "think": {
+    "lemma": "nek-u",
+    "roots": {
+      "head": "nek"
+    }
+  },
+  "see": {
+    "lemma": "sep-u",
+    "roots": {
+      "eye": "sep"
+    }
+  },
+  "smell": {
+    "lemma": "net-u",
+    "roots": {
+      "nose": "net"
+    }
+  },
+  "hear": {
+    "lemma": "hep-u",
+    "roots": {
+      "ear": "hep"
+    }
+  },
+  "say": {
+    "lemma": "lon-u",
+    "roots": {
+      "tongue": "lon"
+    }
+  },
+  "eat": {
+    "lemma": "sal-u",
+    "roots": {
+      "mouth": "sal"
+    }
+  },
+  "drink": {
+    "lemma": "sal-u",
+    "roots": {
+      "mouth": "sal"
+    }
+  },
+  "first person plural": {
+    "lemma": "kako",
+    "roots": {
+      "first person singular": "ka",
+      "many": "kot"
+    }
+  },
+  "second person plural": {
+    "lemma": "kuko",
+    "roots": {
+      "second person singular": "ku",
+      "many": "kot"
+    }
+  },
+  "third person plural": {
+    "lemma": "kiko",
+    "roots": {
+      "third person singular": "ki",
+      "many": "kot"
+    }
+  },
+  "what": {
+    "lemma": "kip-e",
+    "roots": {
+      "thing": "kip"
+    }
+  },
+  "when": {
+    "lemma": "tuh-e",
+    "roots": {
+      "time": "tuh"
+    }
+  },
+  "where": {
+    "lemma": "mas-e",
+    "roots": {
+      "place": "mas"
+    }
+  },
+  "who": {
+    "lemma": "pih-e",
+    "roots": {
+      "person": "pih"
+    }
+  },
+  "why": {
+    "lemma": "hem-e",
+    "roots": {
+      "reason": "hem"
+    }
+  },
+  "how": {
+    "lemma": "sup-e",
+    "roots": {
+      "method": "sup"
+    }
+  },
+  "there": {
+    "lemma": "me-mas-a",
+    "roots": {
+      "that (determiner)": "me",
+      "place": "mas"
+    }
+  },
+  "here": {
+    "lemma": "mo-mas-a",
+    "roots": {
+      "this (determiner)": "mo",
+      "place": "mas"
+    }
+  }
+}

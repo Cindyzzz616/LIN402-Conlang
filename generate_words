@@ -1,0 +1,23 @@
+
+
+def generate_word(root_id, derivation_rule_name, inflection=None):
+    root = ROOTS[root_id]
+    deriv_rule = DERIVATION_RULES[derivation_rule_name]
+
+    # 1️⃣ Validate derivation compatibility
+    if root["type"] != deriv_rule["input_type"]:
+        raise ValueError("Invalid derivation for this root")
+
+    # 2️⃣ Apply derivation
+    base_form = root["root"] + deriv_rule["suffix"]
+
+    # 3️⃣ Apply inflection (if any)
+    if inflection:
+        pos = deriv_rule["output_pos"]
+        inflection_suffix = INFLECTION_RULES[pos].get(inflection, "")
+        base_form += inflection_suffix
+
+    # 4️⃣ Apply phonology
+    surface_form = apply_phonology(base_form)
+
+    return surface_form
