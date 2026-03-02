@@ -1,0 +1,178 @@
+{
+  "feature_schema": {
+    "consonant_features": [
+      "type",
+      "place",
+      "manner",
+      "voicing",
+      "continuant",
+      "nasal",
+      "sonorant",
+      "lateral"
+    ],
+    "vowel_features": [
+      "type",
+      "height",
+      "backness",
+      "rounding",
+      "tense",
+      "low",
+      "high"
+    ]
+  },
+
+  "phonemes": {
+
+    "p": {
+      "ipa": "p",
+      "type": "consonant",
+      "place": "bilabial",
+      "manner": "stop",
+      "voicing": "voiceless",
+      "continuant": false,
+      "nasal": false,
+      "sonorant": false,
+      "lateral": false
+    },
+
+    "t": {
+      "ipa": "t",
+      "type": "consonant",
+      "place": "alveolar",
+      "manner": "stop",
+      "voicing": "voiceless",
+      "continuant": false,
+      "nasal": false,
+      "sonorant": false,
+      "lateral": false
+    },
+
+    "k": {
+      "ipa": "k",
+      "type": "consonant",
+      "place": "velar",
+      "manner": "stop",
+      "voicing": "voiceless",
+      "continuant": false,
+      "nasal": false,
+      "sonorant": false,
+      "lateral": false
+    },
+
+    "m": {
+      "ipa": "m",
+      "type": "consonant",
+      "place": "bilabial",
+      "manner": "nasal",
+      "voicing": "voiced",
+      "continuant": false,
+      "nasal": true,
+      "sonorant": true,
+      "lateral": false
+    },
+
+    "n": {
+      "ipa": "n",
+      "type": "consonant",
+      "place": "alveolar",
+      "manner": "nasal",
+      "voicing": "voiced",
+      "continuant": false,
+      "nasal": true,
+      "sonorant": true,
+      "lateral": false
+    },
+
+    "s": {
+      "ipa": "s",
+      "type": "consonant",
+      "place": "alveolar",
+      "manner": "fricative",
+      "voicing": "voiceless",
+      "continuant": true,
+      "nasal": false,
+      "sonorant": false,
+      "lateral": false
+    },
+
+    "h": {
+      "ipa": "h",
+      "type": "consonant",
+      "place": "glottal",
+      "manner": "fricative",
+      "voicing": "voiceless",
+      "continuant": true,
+      "nasal": false,
+      "sonorant": false,
+      "lateral": false
+    },
+
+    "l": {
+      "ipa": "l",
+      "type": "consonant",
+      "place": "alveolar",
+      "manner": "lateral_approximant",
+      "voicing": "voiced",
+      "continuant": true,
+      "nasal": false,
+      "sonorant": true,
+      "lateral": true
+    },
+
+    "i": {
+      "ipa": "i",
+      "type": "vowel",
+      "height": "high",
+      "backness": "front",
+      "rounding": "unrounded",
+      "tense": true,
+      "high": true,
+      "low": false
+    },
+
+    "e": {
+      "ipa": "e",
+      "type": "vowel",
+      "height": "mid",
+      "backness": "front",
+      "rounding": "unrounded",
+      "tense": true,
+      "high": false,
+      "low": false
+    },
+
+    "a": {
+      "ipa": "a",
+      "type": "vowel",
+      "height": "low",
+      "backness": "central",
+      "rounding": "unrounded",
+      "tense": true,
+      "high": false,
+      "low": true
+    },
+
+    "o": {
+      "ipa": "o",
+      "type": "vowel",
+      "height": "mid",
+      "backness": "back",
+      "rounding": "rounded",
+      "tense": true,
+      "high": false,
+      "low": false
+    },
+
+    "u": {
+      "ipa": "u",
+      "type": "vowel",
+      "height": "high",
+      "backness": "back",
+      "rounding": "rounded",
+      "tense": true,
+      "high": true,
+      "low": false
+    }
+
+  }
+}
