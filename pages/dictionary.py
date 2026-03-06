@@ -14,10 +14,10 @@ def load_json(path):
 st.title("Dictionary")
 st.caption("Browse generated entries and compounds.")
 
-mapped = load_json("lexicon_mapped.json")
+roots = load_json("roots.json")
 compounds = load_json("compound_words.json")
 
-if not mapped and not compounds:
+if not roots and not compounds:
     st.info("No dictionary data found. Go to the `Create Words` page first.")
     st.stop()
 
@@ -27,8 +27,8 @@ english_query_l = english_query.lower()
 conlang_query_l = conlang_query.lower()
 
 rows = []
-if mapped:
-    for eng, con in mapped.items():
+if roots:
+    for eng, con in roots.items():
         rows.append({"Type": "Base", "English": eng, "Conlang": con})
 if compounds:
     for eng, data in compounds.items():
