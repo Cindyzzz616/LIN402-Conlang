@@ -33,3 +33,11 @@ The sidebar exposes buttons for generating mappings, viewing existing results, a
 
 > ⚠️ If you choose not to use a virtual environment, you may need to install with `pipx` or pass
 > `--break-system-packages` to `pip` as described by Homebrew, but a venv is strongly recommended.
+
+## TODO
+
+- [ ] Figure out allophones for each phoneme - would cover the entire IPA
+
+## Scratchpad
+
+- 40 CV syllables, 320 CVC syllables

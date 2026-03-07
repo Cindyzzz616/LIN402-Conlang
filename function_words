@@ -1,0 +1,62 @@
+plural marker
+possessive marker
+
+that (complementizer)
+have
+be
+do
+
+the
+this
+that
+this+plural
+that+plural
+
+zero
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+
+who
+what
+where
+when
+why
+how
+which
+whose
+
+and
+or
+if
+then
+not
+
+in
+on
+
+{
+  "noun": { "suffix": "-a" },
+  "adjective": { "suffix": "-i" },
+  "verb": { "suffix": "-u" },
+  "complementizer": { "suffix": "-e" },
+  "adverb": { "suffix": "-o" }
+}
+-an
+-in
+-un
+-en
+-on
+
+ai
+ia
+ui
+iu
+au
+ua
