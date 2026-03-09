@@ -54,6 +54,22 @@ Content words
 - Adverb (Modifier): Modifies a verb, adjective, or other adverb; often indicates how, when, or where (e.g., quickly, yesterday, here, very).
     - suffix -o
 
+-ai
+-ui
+-ei
+-oi
+-an
+-un
+-en
+-on
+-in
+-ni
+-nin
+-ani
+-uni
+-eni
+-oni
+
 Function words
 
 - articles — the and a. In some inflected languages, the articles may take on the case of the declension of the following noun.
