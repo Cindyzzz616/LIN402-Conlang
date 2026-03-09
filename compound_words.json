@@ -1,255 +1,196 @@
 {
-  "bird": {
-    "lemma": "lun-nel-a",
+  "lun-nel-a": {
     "roots": {
-      "animal": "lun",
-      "sky": "nel"
-    }
+      "lun": "animal",
+      "nel": "sky"
+    },
+    "meaning": "bird",
+    "syntactic_category": "noun"
   },
-  "worm": {
-    "lemma": "lun-los-pot-kis-a",
+  "lun-hol-a": {
     "roots": {
-      "animal": "lun",
-      "dirt/earth": "los",
-      "long/tall": "pot",
-      "small": "kis"
-    }
+      "lun": "animal",
+      "hol": "water"
+    },
+    "meaning": "fish",
+    "syntactic_category": "noun"
   },
-  "fish": {
-    "lemma": "lun-hol-a",
+  "lun-los-pot-a": {
     "roots": {
-      "animal": "lun",
-      "water": "hol"
-    }
+      "lun": "animal",
+      "los": "dirt/earth",
+      "pot": "long/tall"
+    },
+    "meaning": "snake",
+    "syntactic_category": "noun"
   },
-  "snake": {
-    "lemma": "lun-los-pot-a",
+  "lun-los-a": {
     "roots": {
-      "animal": "lun",
-      "dirt/earth": "los",
-      "long/tall": "pot"
-    }
+      "lun": "animal",
+      "los": "dirt/earth"
+    },
+    "meaning": "dog",
+    "syntactic_category": "noun"
   },
-  "dog": {
-    "lemma": "lun-los-a",
+  "mik-kis-e": {
     "roots": {
-      "animal": "lun",
-      "dirt/earth": "los"
-    }
+      "mik": "hot",
+      "kis": "small"
+    },
+    "meaning": "warm",
+    "syntactic_category": "adjective"
   },
-  "warm": {
-    "lemma": "mik-kis-i",
+  "pih-sak-a": {
     "roots": {
-      "hot": "mik",
-      "small": "kis"
-    }
+      "pih": "person",
+      "sak": "male"
+    },
+    "meaning": "man",
+    "syntactic_category": "noun"
   },
-  "man": {
-    "lemma": "pih-sak-a",
+  "pih-san-a": {
     "roots": {
-      "person": "pih",
-      "male": "sak"
-    }
+      "pih": "person",
+      "san": "female"
+    },
+    "meaning": "woman",
+    "syntactic_category": "noun"
   },
-  "woman": {
-    "lemma": "pih-san-a",
+  "pih-kis-a": {
     "roots": {
-      "person": "pih",
-      "female": "san"
-    }
+      "pih": "person",
+      "kis": "small"
+    },
+    "meaning": "child",
+    "syntactic_category": "noun"
   },
-  "child": {
-    "lemma": "pih-kis-a",
+  "tih-sak-a": {
     "roots": {
-      "person": "pih",
-      "small": "kis"
-    }
+      "tih": "spouse",
+      "sak": "male"
+    },
+    "meaning": "husband",
+    "syntactic_category": "noun"
   },
-  "husband": {
-    "lemma": "tih-sak-a",
+  "tih-san-a": {
     "roots": {
-      "spouse": "tih",
-      "male": "sak"
-    }
+      "tih": "spouse",
+      "san": "female"
+    },
+    "meaning": "wife",
+    "syntactic_category": "noun"
   },
-  "wife": {
-    "lemma": "tih-san-a",
+  "pup-sak-a": {
     "roots": {
-      "spouse": "tih",
-      "female": "san"
-    }
+      "pup": "parent",
+      "sak": "male"
+    },
+    "meaning": "father",
+    "syntactic_category": "noun"
   },
-  "father": {
-    "lemma": "pup-sak-a",
+  "pup-san-a": {
     "roots": {
-      "parent": "pup",
-      "male": "sak"
-    }
+      "pup": "parent",
+      "san": "female"
+    },
+    "meaning": "mother",
+    "syntactic_category": "noun"
   },
-  "mother": {
-    "lemma": "pup-san-a",
+  "tum-sak-a": {
     "roots": {
-      "parent": "pup",
-      "female": "san"
-    }
+      "tum": "sibling",
+      "sak": "male"
+    },
+    "meaning": "brother",
+    "syntactic_category": "noun"
   },
-  "brother": {
-    "lemma": "tum-sak-a",
+  "tum-sak-les-a": {
     "roots": {
-      "sibling": "tum",
-      "male": "sak"
-    }
+      "tum": "sibling",
+      "sak": "male",
+      "les": "old"
+    },
+    "meaning": "older brother",
+    "syntactic_category": "noun"
   },
-  "older brother": {
-    "lemma": "tum-sak-les-a",
+  "tum-sak-lem-a": {
     "roots": {
-      "sibling": "tum",
-      "male": "sak",
-      "old": "les"
-    }
+      "tum": "sibling",
+      "sak": "male",
+      "lem": "young/new"
+    },
+    "meaning": "younger brother",
+    "syntactic_category": "noun"
   },
-  "younger brother": {
-    "lemma": "tum-sak-lem-a",
+  "tum-san-a": {
     "roots": {
-      "sibling": "tum",
-      "male": "sak",
-      "young/new": "lem"
-    }
+      "tum": "sibling",
+      "san": "female"
+    },
+    "meaning": "sister",
+    "syntactic_category": "noun"
   },
-  "sister": {
-    "lemma": "tum-san-a",
+  "tum-san-les-a": {
     "roots": {
-      "sibling": "tum",
-      "female": "san"
-    }
+      "tum": "sibling",
+      "san": "female",
+      "les": "old"
+    },
+    "meaning": "older sister",
+    "syntactic_category": "noun"
   },
-  "older sister": {
-    "lemma": "tum-san-les-a",
+  "tum-san-lem-a": {
     "roots": {
-      "sibling": "tum",
-      "female": "san",
-      "old": "les"
-    }
+      "tum": "sibling",
+      "san": "female",
+      "lem": "young/new"
+    },
+    "meaning": "younger sister",
+    "syntactic_category": "noun"
   },
-  "younger sister": {
-    "lemma": "tum-san-lem-a",
+  "nek-u": {
     "roots": {
-      "sibling": "tum",
-      "female": "san",
-      "young/new": "lem"
-    }
+      "nek": "head"
+    },
+    "meaning": "think",
+    "syntactic_category": "verb"
   },
-  "think": {
-    "lemma": "nek-u",
+  "sep-u": {
     "roots": {
-      "head": "nek"
-    }
+      "sep": "eye"
+    },
+    "meaning": "see",
+    "syntactic_category": "verb"
   },
-  "see": {
-    "lemma": "sep-u",
+  "net-u": {
     "roots": {
-      "eye": "sep"
-    }
+      "net": "nose"
+    },
+    "meaning": "smell",
+    "syntactic_category": "verb"
   },
-  "smell": {
-    "lemma": "net-u",
+  "hep-u": {
     "roots": {
-      "nose": "net"
-    }
+      "hep": "ear"
+    },
+    "meaning": "hear",
+    "syntactic_category": "verb"
   },
-  "hear": {
-    "lemma": "hep-u",
+  "lon-u": {
     "roots": {
-      "ear": "hep"
-    }
+      "lon": "tongue"
+    },
+    "meaning": "say",
+    "syntactic_category": "verb"
   },
-  "say": {
-    "lemma": "lon-u",
+  "sal-u": {
     "roots": {
-      "tongue": "lon"
-    }
-  },
-  "eat": {
-    "lemma": "sal-u",
-    "roots": {
-      "mouth": "sal"
-    }
-  },
-  "drink": {
-    "lemma": "sal-u",
-    "roots": {
-      "mouth": "sal"
-    }
-  },
-  "first person plural": {
-    "lemma": "kako",
-    "roots": {
-      "first person singular": "ka",
-      "many": "kot"
-    }
-  },
-  "second person plural": {
-    "lemma": "kuko",
-    "roots": {
-      "second person singular": "ku",
-      "many": "kot"
-    }
-  },
-  "third person plural": {
-    "lemma": "kiko",
-    "roots": {
-      "third person singular": "ki",
-      "many": "kot"
-    }
-  },
-  "what": {
-    "lemma": "kip-e",
-    "roots": {
-      "thing": "kip"
-    }
-  },
-  "when": {
-    "lemma": "tuh-e",
-    "roots": {
-      "time": "tuh"
-    }
-  },
-  "where": {
-    "lemma": "mas-e",
-    "roots": {
-      "place": "mas"
-    }
-  },
-  "who": {
-    "lemma": "pih-e",
-    "roots": {
-      "person": "pih"
-    }
-  },
-  "why": {
-    "lemma": "hem-e",
-    "roots": {
-      "reason": "hem"
-    }
-  },
-  "how": {
-    "lemma": "sup-e",
-    "roots": {
-      "method": "sup"
-    }
-  },
-  "there": {
-    "lemma": "me-mas-a",
-    "roots": {
-      "that (determiner)": "me",
-      "place": "mas"
-    }
-  },
-  "here": {
-    "lemma": "mo-mas-a",
-    "roots": {
-      "this (determiner)": "mo",
-      "place": "mas"
-    }
+      "sal": "mouth"
+    },
+    "meaning": [
+      "eat",
+      "drink"
+    ],
+    "syntactic_category": "verb"
   }
 }
