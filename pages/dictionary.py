@@ -62,6 +62,57 @@ def normalize_compound_entry(k, data):
 st.title("Dictionary")
 st.caption("Browse generated entries and compounds.")
 
+st.markdown('''
+## Design Rationale
+
+### Function Words vs. Content Words
+- The language **strictly separates function words and content words**, mainly due to phonological constraints.
+- The phonotactic system allows only a limited set of **CV syllables**, which are reserved for **function words** (a closed class such as particles and grammatical markers).
+- There are **40 possible CV syllables**, which is sufficient for the small inventory of grammatical items.
+- A possible expansion is a **VCV pattern**, particularly for postpositions, which would provide **200 possible forms** for additional grammatical elements.
+
+### Content Words
+- **Content words** include **nouns, verbs, adjectives, and adverbs**.
+- These are built from **CVC roots**, or compounds of such roots, followed by a **vowel suffix that marks word class**.
+- The language allows **320 possible CVC roots**, creating a controlled but productive vocabulary base.
+
+**Word class suffixes:**
+- **Nouns:** `-a`  
+- **Verbs:** `-u`  
+- **Adjectives:** `-e`  
+- **Adverbs:** `-o`
+
+### Complementizers and Root Formation
+- **Complementizers** were originally planned as derived forms but were reclassified as **function words**, since they belong to a closed grammatical class.
+- Some lexical roots are created through **back-formation from function words**.  
+  - Example: the root for “place” may derive from the function word “where” by adding a final consonant to form a valid **CVC root**.
+
+### Expanded Vocabulary
+- For less common concepts that cannot be expressed through compounding, the language allows **CVCVC roots**.
+- There are approximately **12,800 possible CVCVC combinations**, providing enough space for additional vocabulary.
+- Complex ideas can also be expressed through **multi-word constructions**.
+
+## Word Formation Strategy
+
+- The language relies heavily on **derivational morphology**.
+- **Word class changes** are primarily handled through **suffixation**.
+- **Lexical meaning** is often built through **compounding CVC roots**.
+
+### Compounding Rules
+- When two CVC roots combine, a **schwa is inserted** between them to avoid illegal consonant clusters.
+- The exact phonotactic rules for compounding are still under development.
+- To prevent overly long words, **compounds are limited to a maximum of three roots**.
+
+### Deliberate Design Choices
+The language intentionally avoids some strategies common in natural languages:
+
+- **Opaque metaphorical extensions**  
+  - Avoided because they rely on culture-specific knowledge and reduce transparency for learners.
+
+- **Zero derivation (conversion)**  
+  - Avoided because it creates ambiguity about a word’s syntactic category, making the language harder to learn and more difficult to parse computationally.
+''')
+
 roots = load_json("roots.json")
 compounds = load_json("compound_words.json")
 function_words = load_json("function_words.json")
