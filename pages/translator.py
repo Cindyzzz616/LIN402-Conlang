@@ -112,3 +112,11 @@ if st.button("Translate", type="primary"):
     st.code(" ".join(out) if out else "", language="text")
     if missing:
         st.warning("Not found: " + ", ".join(sorted(set(missing))))
+
+st.header("Example")
+
+st.markdown('''
+| 3PL | Travel-N | Cloak-N | 3SG-POSS | Remove-IMP | Succeed-V | who-COMP | Person-N | strong-more-Adj | BE | that-COMP | Think-V | Should-T | that-COMP | Agree-V |
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| hiko | netola | meluna | hin | lenui | pisu | wo | piha | maməlele | huhu | pu | neku | ti | pu | seku |
+''')
