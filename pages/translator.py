@@ -11,15 +11,73 @@ def load_json(path):
         return {}
 
 
+def looks_like_english_gloss(text):
+    if not isinstance(text, str):
+        return False
+    markers = [" ", "/", "(", ")", ","]
+    return any(marker in text for marker in markers)
+
+
+def invert_if_needed(data):
+    if not isinstance(data, dict):
+        return {}
+
+    items = [(k, v) for k, v in data.items() if isinstance(k, str) and isinstance(v, str)]
+    if not items:
+        return {}
+
+    key_markers = sum(1 for k, _ in items if looks_like_english_gloss(k))
+    val_markers = sum(1 for _, v in items if looks_like_english_gloss(v))
+    if val_markers > key_markers:
+        items = [(v, k) for k, v in items]
+    elif key_markers == val_markers:
+        avg_key_len = sum(len(k) for k, _ in items) / len(items)
+        avg_val_len = sum(len(v) for _, v in items) / len(items)
+        if avg_key_len < avg_val_len:
+            items = [(v, k) for k, v in items]
+
+    return dict(items)
+
+
+def compound_to_mapping(data):
+    mapping = {}
+    if not isinstance(data, dict):
+        return mapping
+
+    for key, entry in data.items():
+        if not isinstance(entry, dict):
+            continue
+
+        # Old schema: english -> {"lemma": "..."}
+        if "lemma" in entry:
+            english = key
+            conlang = entry.get("lemma")
+        # New schema: lemma -> {"meaning": "..."}
+        else:
+            english = entry.get("meaning")
+            conlang = key
+
+        if isinstance(english, list):
+            english = ", ".join(english)
+        if isinstance(english, str) and isinstance(conlang, str) and english and conlang:
+            mapping[english.lower()] = conlang.lower()
+
+    return mapping
+
+
 st.title("Translator")
 st.caption("Translate word-by-word between English and generated conlang forms.")
 
 base = load_json("lexicon_mapped.json")
+roots = load_json("roots.json")
+function_words = load_json("function_words.json")
 compounds = load_json("compound_words.json")
 
-eng_to_con = dict(base)
-for eng, item in compounds.items():
-    eng_to_con[eng] = item["lemma"]
+eng_to_con = {}
+eng_to_con.update({k.lower(): v.lower() for k, v in invert_if_needed(base).items()})
+eng_to_con.update({k.lower(): v.lower() for k, v in invert_if_needed(roots).items()})
+eng_to_con.update({k.lower(): v.lower() for k, v in invert_if_needed(function_words).items()})
+eng_to_con.update(compound_to_mapping(compounds))
 con_to_eng = {v: k for k, v in eng_to_con.items()}
 
 if not eng_to_con:
