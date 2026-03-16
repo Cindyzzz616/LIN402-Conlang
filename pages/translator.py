@@ -18,25 +18,30 @@ def looks_like_english_gloss(text):
     return any(marker in text for marker in markers)
 
 
-def invert_if_needed(data):
+def normalize_simple_mapping(data):
     if not isinstance(data, dict):
         return {}
 
-    items = [(k, v) for k, v in data.items() if isinstance(k, str) and isinstance(v, str)]
-    if not items:
-        return {}
+    mapping = {}
+    for left, right in data.items():
+        if not isinstance(left, str) or not isinstance(right, str):
+            continue
 
-    key_markers = sum(1 for k, _ in items if looks_like_english_gloss(k))
-    val_markers = sum(1 for _, v in items if looks_like_english_gloss(v))
-    if val_markers > key_markers:
-        items = [(v, k) for k, v in items]
-    elif key_markers == val_markers:
-        avg_key_len = sum(len(k) for k, _ in items) / len(items)
-        avg_val_len = sum(len(v) for _, v in items) / len(items)
-        if avg_key_len < avg_val_len:
-            items = [(v, k) for k, v in items]
+        left_english = looks_like_english_gloss(left)
+        right_english = looks_like_english_gloss(right)
 
-    return dict(items)
+        if left_english and not right_english:
+            english, conlang = left, right
+        elif right_english and not left_english:
+            english, conlang = right, left
+        elif len(left) <= len(right):
+            english, conlang = right, left
+        else:
+            english, conlang = left, right
+
+        mapping[english.lower()] = conlang.lower()
+
+    return mapping
 
 
 def compound_to_mapping(data):
@@ -74,9 +79,9 @@ function_words = load_json("function_words.json")
 compounds = load_json("compound_words.json")
 
 eng_to_con = {}
-eng_to_con.update({k.lower(): v.lower() for k, v in invert_if_needed(base).items()})
-eng_to_con.update({k.lower(): v.lower() for k, v in invert_if_needed(roots).items()})
-eng_to_con.update({k.lower(): v.lower() for k, v in invert_if_needed(function_words).items()})
+eng_to_con.update(normalize_simple_mapping(base))
+eng_to_con.update(normalize_simple_mapping(roots))
+eng_to_con.update(normalize_simple_mapping(function_words))
 eng_to_con.update(compound_to_mapping(compounds))
 con_to_eng = {v: k for k, v in eng_to_con.items()}
 

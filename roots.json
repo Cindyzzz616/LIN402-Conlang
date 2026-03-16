@@ -143,7 +143,6 @@
   "nos": "first",
   "mas": "place",
   "nih": "because",
-  "ton": "cloak",
   "mam": "strong",
   "til": "weak",
   "lel": "more",
@@ -202,7 +201,7 @@
   "lahim": "ethnicity",
   "pones": "race",
   "katis": "name",
-  "melun": "gender",
+  "melun": "cloak",
   "husen": "welcome",
   "tipal": "passport",
   "kopes": "visa",
@@ -210,5 +209,5 @@
   "tunem": "immigration",
   "lotek": "work",
   "penak": "school",
-  "cloak": "melun"
+  "notit": "bottle"
 }

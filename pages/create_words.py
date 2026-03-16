@@ -34,16 +34,16 @@ def is_lemma_taken(lemma):
     """Check if a lemma is already used in roots.json or compound_words.json"""
     roots = load_roots()
     compounds = load_compounds()
-    
-    # Check if lemma is a value in roots.json
-    if lemma in roots.values():
+
+    if lemma in roots.keys() or lemma in roots.values():
         return True
-    
-    # Check if lemma is used in compound_words.json
-    for entry in compounds.values():
+
+    for compound_lemma, entry in compounds.items():
+        if compound_lemma == lemma:
+            return True
         if entry.get("lemma") == lemma:
             return True
-    
+
     return False
 
 
@@ -125,6 +125,9 @@ if st.session_state.candidate_root:
             st.info("Add an English gloss to save it to `roots.json`.")
         else:
             roots = load_roots()
-            roots[gloss] = st.session_state.candidate_root
+            roots[st.session_state.candidate_root] = gloss
             save_roots(roots)
-            st.success(f"Saved `{gloss}` -> `{st.session_state.candidate_root}` to roots.json")
+            st.session_state.root_pattern = ""
+            st.session_state.candidate_root = ""
+            st.query_params["english"] = gloss
+            st.switch_page("pages/dictionary.py")

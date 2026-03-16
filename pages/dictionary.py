@@ -37,6 +37,23 @@ def is_inverted_mapping(data):
     return avg_key_len < avg_val_len
 
 
+def normalize_simple_entry(left, right):
+    if not isinstance(left, str) or not isinstance(right, str):
+        return None
+
+    left_english = looks_like_english_gloss(left)
+    right_english = looks_like_english_gloss(right)
+
+    if left_english and not right_english:
+        return {"English": left, "Conlang": right}
+    if right_english and not left_english:
+        return {"English": right, "Conlang": left}
+
+    if len(left) <= len(right):
+        return {"English": right, "Conlang": left}
+    return {"English": left, "Conlang": right}
+
+
 def normalize_compound_entry(k, data):
     # old schema:
     #   english -> {"lemma": "...", "roots": {english: lemma}}
@@ -113,6 +130,9 @@ The language intentionally avoids some strategies common in natural languages:
   - Avoided because it creates ambiguity about a word’s syntactic category, making the language harder to learn and more difficult to parse computationally.
 ''')
 
+if st.button("Refresh dictionary"):
+    st.rerun()
+
 roots = load_json("roots.json")
 compounds = load_json("compound_words.json")
 function_words = load_json("function_words.json")
@@ -121,23 +141,24 @@ if not roots and not compounds and not function_words:
     st.info("No dictionary data found. Go to the `Create Words` page first.")
     st.stop()
 
-english_query = st.text_input("English lookup").strip()
+default_english_query = st.query_params.get("english", "")
+english_query = st.text_input("English lookup", value=default_english_query).strip()
 conlang_query = st.text_input("Conlang lookup").strip()
 english_query_l = english_query.lower()
 conlang_query_l = conlang_query.lower()
 
 rows = []
 if roots:
-    roots_inverted = is_inverted_mapping(roots)
     for k, v in roots.items():
-        eng, con = (v, k) if roots_inverted else (k, v)
-        rows.append({"Type": "Base", "English": eng, "Conlang": con, "Category": ""})
+        normalized = normalize_simple_entry(k, v)
+        if normalized:
+            rows.append({"Type": "Base", **normalized, "Category": ""})
 
 if function_words:
-    function_inverted = is_inverted_mapping(function_words)
     for k, v in function_words.items():
-        eng, con = (v, k) if function_inverted else (k, v)
-        rows.append({"Type": "Function", "English": eng, "Conlang": con, "Category": ""})
+        normalized = normalize_simple_entry(k, v)
+        if normalized:
+            rows.append({"Type": "Function", **normalized, "Category": ""})
 
 if compounds:
     for k, data in compounds.items():
