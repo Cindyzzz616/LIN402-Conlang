@@ -77,6 +77,8 @@ if "root_pattern" not in st.session_state:
     st.session_state.root_pattern = ""
 if "candidate_root" not in st.session_state:
     st.session_state.candidate_root = ""
+if "manual_lemma" not in st.session_state:
+    st.session_state.manual_lemma = ""
 
 mode = st.radio("Choose what to create", ["Root", "Compound"], horizontal=True)
 
@@ -91,43 +93,69 @@ vowels = [p for p, v in inventory["phonemes"].items() if v["type"] == "vowel"]
 default_gloss = st.query_params.get("new_word", "")
 gloss = st.text_input("English gloss (optional)", value=default_gloss).strip()
 
-st.subheader("Syllable Structure")
-st.code(st.session_state.root_pattern if st.session_state.root_pattern else "(empty)", language="text")
+st.subheader("Lemma Input Method")
+lemma_mode = st.radio("Choose how to create the lemma", ["Randomly generate", "Enter manually"], horizontal=True)
 
-c_col, v_col, back_col, clear_col = st.columns(4)
-if c_col.button("C", key="btn_c"):
-    st.session_state.root_pattern += "C"
-    st.rerun()
-if v_col.button("V", key="btn_v"):
-    st.session_state.root_pattern += "V"
-    st.rerun()
-if back_col.button("Backspace", key="btn_back"):
-    st.session_state.root_pattern = st.session_state.root_pattern[:-1]
-    st.rerun()
-if clear_col.button("Clear", key="btn_clear"):
-    st.session_state.root_pattern = ""
-    st.session_state.candidate_root = ""
-    st.rerun()
+selected_lemma = ""
 
-if st.button("Generate Root", type="primary"):
-    if not st.session_state.root_pattern:
-        st.warning("Please add at least one C or V to the pattern.")
-    else:
-        st.session_state.candidate_root = generate_unique_root(st.session_state.root_pattern, consonants, vowels)
+if lemma_mode == "Randomly generate":
+    st.subheader("Syllable Structure")
+    st.code(st.session_state.root_pattern if st.session_state.root_pattern else "(empty)", language="text")
 
-if st.session_state.candidate_root:
-    st.subheader("Generated Lemma")
-    st.code(st.session_state.candidate_root, language="text")
+    c_col, v_col, back_col, clear_col = st.columns(4)
+    if c_col.button("C", key="btn_c"):
+        st.session_state.root_pattern += "C"
+        st.rerun()
+    if v_col.button("V", key="btn_v"):
+        st.session_state.root_pattern += "V"
+        st.rerun()
+    if back_col.button("Backspace", key="btn_back"):
+        st.session_state.root_pattern = st.session_state.root_pattern[:-1]
+        st.rerun()
+    if clear_col.button("Clear", key="btn_clear"):
+        st.session_state.root_pattern = ""
+        st.session_state.candidate_root = ""
+        st.rerun()
 
+    if st.button("Generate Root", type="primary"):
+        if not st.session_state.root_pattern:
+            st.warning("Please add at least one C or V to the pattern.")
+        else:
+            st.session_state.candidate_root = generate_unique_root(st.session_state.root_pattern, consonants, vowels)
+
+    if st.session_state.candidate_root:
+        st.subheader("Generated Lemma")
+        st.code(st.session_state.candidate_root, language="text")
+        selected_lemma = st.session_state.candidate_root
+else:
+    manual_lemma = st.text_input(
+        "Enter lemma",
+        value=st.session_state.manual_lemma,
+        help="Type a lemma directly instead of generating one from the syllable pattern.",
+    ).strip()
+    st.session_state.manual_lemma = manual_lemma
+
+    if manual_lemma:
+        st.subheader("Manual Lemma")
+        st.code(manual_lemma, language="text")
+        selected_lemma = manual_lemma
+
+        if is_lemma_taken(manual_lemma):
+            st.error(f"`{manual_lemma}` is already in `roots.json` or `compound_words.json`.")
+
+if selected_lemma:
     if st.button("Accept Lemma"):
-        if not gloss:
-            st.success(f"Accepted lemma: {st.session_state.candidate_root}")
+        if is_lemma_taken(selected_lemma):
+            st.error(f"`{selected_lemma}` is already in `roots.json` or `compound_words.json`.")
+        elif not gloss:
+            st.success(f"Accepted lemma: {selected_lemma}")
             st.info("Add an English gloss to save it to `roots.json`.")
         else:
             roots = load_roots()
-            roots[st.session_state.candidate_root] = gloss
+            roots[selected_lemma] = gloss
             save_roots(roots)
             st.session_state.root_pattern = ""
             st.session_state.candidate_root = ""
+            st.session_state.manual_lemma = ""
             st.query_params["english"] = gloss
             st.switch_page("pages/dictionary.py")
