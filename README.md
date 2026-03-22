@@ -40,7 +40,47 @@ The sidebar exposes buttons for generating mappings, viewing existing results, a
 
 ## Scratchpad
 
-- 40 CV syllables, 320 CVC syllables
+### Feedback from class
+
+• multiple values for entries - one conlang word as key
+
+• don't exhaust every possible combination
+
+	◦ issue of short words sounding similar to each other - when people speak too fast
+	◦ also incremental processing
+	◦ e.g. toki pona
+	◦ look into other forms of compression (e.g. reduplication)
+	◦ allow longer words instead - with more unique beginnings
+
+• look at real languages with small inventories
+
+• caution of losing human art aspect in computational language
+
+• for compound words - have phonological processes to introduce sounds that are not phonemic?
+
+• loanwords - incorporate native conlang morphology?
+
+• think more about complementizers - should wh-words be used for "that" relative clauses? what about embedded clauses?
+
+
+
+https://en.wikipedia.org/wiki Serial_verb_construction
+
+https://en.wikipedia.org/wiki/Chinese_grammar
+
+- 40 CV syllables
+
+- 200 VCV syllables - these won't be part of noun classes
+
+- 320 CVC syllables
+
+    - 40 syllables for each consonant prefix
+
+- ?? VCVC syllables
+
+- ?? CVCV syllables
+
+- 12800 CVCVC syllables
 
 Content words
 
@@ -121,7 +161,7 @@ Function words
 - Conjunction (Linker): Connects words, phrases, or clauses (e.g., and, but, or, because).
 - Interjection (Emotion): An exclamation expressing sudden emotion (e.g., Wow, Ouch, Hey). 
 
-
+- could do reduplication at the beginning (e.g. hele -> hehele)
 
 	Phone
 	Tablet

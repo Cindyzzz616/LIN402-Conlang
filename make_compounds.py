@@ -1,5 +1,12 @@
 import json
 
+
+def root_lemma(root_key, entry):
+    if isinstance(entry, dict):
+        return root_key
+    return entry
+
+
 rules=json.load(open('derivation_rules.json'))
 roots=json.load(open('roots.json'))
 compound={}
@@ -32,7 +39,7 @@ with open('lexicon_ignored.txt') as f:
                 term=p
                 # direct lookup or fuzzy match
                 if term in roots:
-                    val=roots[term]
+                    val=root_lemma(term, roots[term])
                     lemma_roots.append(val)
                     used_roots[term]=val
                 else:
@@ -43,7 +50,7 @@ with open('lexicon_ignored.txt') as f:
                             found=rk
                             break
                     if found:
-                        val=roots[found]
+                        val=root_lemma(found, roots[found])
                         lemma_roots.append(val)
                         used_roots[found]=val
                     else:

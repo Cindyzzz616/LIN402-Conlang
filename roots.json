@@ -1,214 +1,974 @@
 {
-  "hok": "black",
-  "hut": "white",
-  "his": "red",
-  "him": "yellow",
-  "hos": "grue",
-  "sok": "good",
-  "som": "bad",
-  "les": "old",
-  "lem": "young/new",
-  "mit": "cold",
-  "mik": "hot",
-  "kap": "wet",
-  "kal": "dry",
-  "kim": "big",
-  "kis": "small",
-  "lih": "thick",
-  "lit": "thin",
-  "pot": "long/tall",
-  "pos": "short",
-  "nam": "sharp",
-  "nap": "dull",
-  "nip": "light (weight)",
-  "nin": "heavy",
-  "mel": "rotten",
-  "mem": "fresh",
-  "sak": "male",
-  "san": "female",
-  "tal": "night",
-  "tap": "day",
-  "sih": "live",
-  "sim": "die",
-  "luk": "push",
-  "lus": "pull",
-  "ses": "fruit",
-  "tet": "swim",
-  "tih": "spouse",
-  "pem": "egg",
-  "tim": "rope",
-  "seh": "ashes",
-  "mus": "repeat",
-  "tuh": "time",
-  "nan": "sand",
-  "tes": "leaf",
-  "pih": "person",
-  "lan": "flower",
-  "mih": "tree",
-  "tum": "sibling",
-  "lom": "mountain",
-  "huh": "to be",
-  "sup": "method",
-  "pah": "scratch",
-  "lek": "moon",
-  "hom": "some",
-  "mal": "laugh",
-  "nok": "all",
-  "lon": "tongue",
-  "hum": "give",
-  "tek": "stand",
-  "put": "sit",
-  "kam": "fall",
-  "pek": "hair",
-  "sit": "blow",
-  "sep": "eye",
-  "hil": "to have",
-  "suh": "bite",
-  "net": "nose",
-  "lak": "sleep",
-  "pip": "salt",
-  "map": "home",
-  "kok": "few",
-  "sam": "grass",
-  "nut": "skin",
-  "len": "remove",
-  "tom": "wind",
-  "lep": "belly",
-  "hup": "dance",
-  "hin": "horn",
-  "hol": "water",
-  "mek": "snow",
-  "sus": "rain",
-  "kip": "thing",
-  "sul": "cook",
-  "kom": "star",
-  "kit": "if",
-  "ti": "should",
-  "mok": "app",
-  "men": "cloud",
-  "kah": "tooth",
-  "kul": "dig",
-  "nun": "fire",
-  "ham": "year",
-  "tah": "foot",
-  "tul": "arm",
-  "tol": "stick",
-  "hem": "reason",
-  "pal": "river",
-  "pik": "sing",
-  "leh": "stone",
-  "hel": "neck",
-  "het": "ice",
-  "kot": "many",
-  "ken": "sea",
-  "sal": "mouth",
-  "sil": "breathe",
-  "sem": "leg",
-  "nek": "head",
-  "sas": "take",
-  "hot": "exchange",
-  "kop": "heart",
-  "lil": "bark",
-  "lut": "walk",
-  "mak": "not",
-  "koh": "and",
-  "meh": "sew",
-  "kan": "kill",
-  "huk": "road",
-  "nit": "make",
-  "hep": "ear",
-  "nak": "smoke",
-  "pam": "play",
-  "nel": "sky",
-  "lun": "animal",
-  "pes": "hand",
-  "hoh": "seed",
-  "sin": "computer",
-  "pis": "succeed",
-  "lum": "bone",
-  "nen": "none",
-  "pak": "with",
-  "los": "dirt/earth",
-  "lok": "cut",
-  "lap": "feather",
-  "sek": "agree",
-  "tis": "claw",
-  "kat": "sun",
-  "kol": "lake",
-  "sah": "throw",
-  "mim": "tail",
-  "pup": "parent",
-  "mot": "blood",
-  "luh": "wing",
-  "nos": "first",
-  "mas": "place",
-  "nih": "because",
-  "mam": "strong",
-  "til": "weak",
-  "lel": "more",
-  "lol": "less",
-  "tamel": "phone",
-  "kopan": "tablet",
-  "silok": "scroll",
-  "menat": "like",
-  "hapos": "comment",
-  "lutem": "share",
-  "pesok": "follow",
-  "nokil": "message",
-  "matis": "record",
-  "hekon": "take picture",
-  "supil": "upload",
-  "tapom": "download",
-  "nelus": "internet",
-  "kimon": "technology",
-  "hanep": "connection",
-  "losik": "screen",
-  "pihol": "photo",
-  "moten": "video",
-  "sumak": "audio",
-  "kilan": "bluetooth",
-  "nemok": "practice",
-  "pilat": "learn",
-  "soten": "reading",
-  "husal": "listening",
-  "mesik": "writing",
-  "lonet": "speaking",
-  "takim": "grammar",
-  "silan": "phonology",
-  "nupel": "morphology",
-  "ketom": "syntax",
-  "halin": "semantics",
-  "moset": "review",
-  "pinok": "notice",
-  "luham": "natural",
-  "pasel": "interact",
-  "kitan": "error",
-  "sunep": "correct",
-  "pelok": "spelling",
-  "temin": "word",
-  "namel": "sentence",
-  "hukel": "teach",
-  "mosen": "type",
-  "kalem": "culture",
-  "patok": "language",
-  "selun": "country",
-  "tomik": "province/state",
-  "henap": "city",
-  "nulos": "world",
-  "kimel": "continent",
-  "sapun": "cuisine",
-  "netol": "travel",
-  "lahim": "ethnicity",
-  "pones": "race",
-  "katis": "name",
-  "melun": "cloak",
-  "husen": "welcome",
-  "tipal": "passport",
-  "kopes": "visa",
-  "sanok": "citizenship",
-  "tunem": "immigration",
-  "lotek": "work",
-  "penak": "school",
-  "notit": "bottle",
-  "kuk": "love"
+  "neh": {
+    "forms": {
+      "neha": {
+        "category": "noun",
+        "meaning": "tongue, language"
+      },
+      "nehu": {
+        "category": "verb",
+        "meaning": "to say, to speak"
+      }
+    }
+  },
+  "tul": {
+    "forms": {
+      "tula": {
+        "category": "noun",
+        "meaning": "fire"
+      }
+    }
+  },
+  "not": {
+    "forms": {
+      "nota": {
+        "category": "noun",
+        "meaning": "nose"
+      }
+    }
+  },
+  "lum": {
+    "forms": {
+      "luma": {
+        "category": "noun",
+        "meaning": "movement"
+      },
+      "lumu": {
+        "category": "verb",
+        "meaning": "to go"
+      }
+    }
+  },
+  "tes": {
+    "forms": {
+      "tesa": {
+        "category": "noun",
+        "meaning": "water"
+      },
+      "tese": {
+        "category": "adjective",
+        "meaning": "wet"
+      }
+    }
+  },
+  "nam": {
+    "forms": {
+      "nama": {
+        "category": "noun",
+        "meaning": "mouth"
+      },
+      "namu": {
+        "category": "verb",
+        "meaning": "to eat, to drink"
+      }
+    }
+  },
+  "nus": {
+    "forms": {
+      "nusa": {
+        "category": "noun",
+        "meaning": "tongue"
+      }
+    }
+  },
+  "nup": {
+    "forms": {
+      "nupa": {
+        "category": "noun",
+        "meaning": "blood"
+      },
+      "nupu": {
+        "category": "verb",
+        "meaning": "to bleed"
+      },
+      "nupe": {
+        "category": "adjective",
+        "meaning": "bloody"
+      }
+    }
+  },
+  "nok": {
+    "forms": {
+      "noka": {
+        "category": "noun",
+        "meaning": "bone"
+      }
+    }
+  },
+  "nep": {
+    "forms": {
+      "nepa": {
+        "category": "noun",
+        "meaning": "root"
+      }
+    }
+  },
+  "lat": {
+    "forms": {
+      "lata": {
+        "category": "noun",
+        "meaning": "arrival"
+      },
+      "latu": {
+        "category": "verb",
+        "meaning": "to come"
+      }
+    }
+  },
+  "non": {
+    "forms": {
+      "nona": {
+        "category": "noun",
+        "meaning": "breast"
+      }
+    }
+  },
+  "tin": {
+    "forms": {
+      "tina": {
+        "category": "noun",
+        "meaning": "rain"
+      },
+      "tinu": {
+        "category": "verb",
+        "meaning": "to rain"
+      },
+      "tine": {
+        "category": "adjective",
+        "meaning": "rainy"
+      }
+    }
+  },
+  "mok": {
+    "forms": {
+      "moka": {
+        "category": "noun",
+        "meaning": "name"
+      },
+      "moku": {
+        "category": "verb",
+        "meaning": "to name"
+      }
+    }
+  },
+  "nul": {
+    "forms": {
+      "nula": {
+        "category": "noun",
+        "meaning": "louse"
+      }
+    }
+  },
+  "nil": {
+    "forms": {
+      "nila": {
+        "category": "noun",
+        "meaning": "wing"
+      },
+      "nilu": {
+        "category": "verb",
+        "meaning": "to fly"
+      }
+    }
+  },
+  "nuk": {
+    "forms": {
+      "nuka": {
+        "category": "noun",
+        "meaning": "flesh, meat"
+      }
+    }
+  },
+  "nel": {
+    "forms": {
+      "nela": {
+        "category": "noun",
+        "meaning": "arm, hand"
+      }
+    }
+  },
+  "sok": {
+    "forms": {
+      "soka": {
+        "category": "noun",
+        "meaning": "night"
+      }
+    }
+  },
+  "nen": {
+    "forms": {
+      "nena": {
+        "category": "noun",
+        "meaning": "ear"
+      },
+      "nenu": {
+        "category": "verb",
+        "meaning": "to listen, to hear"
+      }
+    }
+  },
+  "nas": {
+    "forms": {
+      "nasa": {
+        "category": "noun",
+        "meaning": "neck"
+      }
+    }
+  },
+  "pal": {
+    "forms": {
+      "pala": {
+        "category": "noun",
+        "meaning": "distance"
+      }
+    }
+  },
+  "lik": {
+    "forms": {
+      "lika": {
+        "category": "noun",
+        "meaning": "action"
+      },
+      "liku": {
+        "category": "verb",
+        "meaning": "to do"
+      }
+    }
+  },
+  "lon": {
+    "forms": {
+      "lona": {
+        "category": "noun",
+        "meaning": "creation"
+      }
+    }
+  },
+  "pel": {
+    "forms": {
+      "pela": {
+        "category": "noun",
+        "meaning": "house"
+      }
+    }
+  },
+  "ton": {
+    "forms": {
+      "tona": {
+        "category": "noun",
+        "meaning": "stone, rock"
+      },
+      "tone": {
+        "category": "adjective",
+        "meaning": "hard, rocky"
+      }
+    }
+  },
+  "noh": {
+    "forms": {
+      "noha": {
+        "category": "noun",
+        "meaning": "bitterness"
+      },
+      "nohe": {
+        "category": "adjective",
+        "meaning": "bitter"
+      }
+    }
+  },
+  "nit": {
+    "forms": {
+      "nita": {
+        "category": "noun",
+        "meaning": "tooth"
+      }
+    }
+  },
+  "nom": {
+    "forms": {
+      "noma": {
+        "category": "noun",
+        "meaning": "hair"
+      }
+    }
+  },
+  "hun": {
+    "forms": {
+      "huna": {
+        "category": "noun",
+        "meaning": "size"
+      }
+    }
+  },
+  "len": {
+    "forms": {
+      "lena": {
+        "category": "noun",
+        "meaning": "blow"
+      },
+      "lenu": {
+        "category": "verb",
+        "meaning": "to hit"
+      }
+    }
+  },
+  "nun": {
+    "forms": {
+      "nuna": {
+        "category": "noun",
+        "meaning": "leg, foot, thigh"
+      },
+      "nunu": {
+        "category": "verb",
+        "meaning": "to walk"
+      }
+    }
+  },
+  "nut": {
+    "forms": {
+      "nuta": {
+        "category": "noun",
+        "meaning": "horn"
+      }
+    }
+  },
+  "num": {
+    "forms": {
+      "numa": {
+        "category": "noun",
+        "meaning": "fish"
+      }
+    }
+  },
+  "sup": {
+    "forms": {
+      "supa": {
+        "category": "noun",
+        "meaning": "yesterday"
+      }
+    }
+  },
+  "hek": {
+    "forms": {
+      "heka": {
+        "category": "noun",
+        "meaning": "black"
+      },
+      "heke": {
+        "category": "adjective",
+        "meaning": "black"
+      }
+    }
+  },
+  "nik": {
+    "forms": {
+      "nika": {
+        "category": "noun",
+        "meaning": "navel"
+      }
+    }
+  },
+  "lus": {
+    "forms": {
+      "lusa": {
+        "category": "noun",
+        "meaning": "standing"
+      },
+      "lusu": {
+        "category": "verb",
+        "meaning": "to stand"
+      }
+    }
+  },
+  "lis": {
+    "forms": {
+      "lisa": {
+        "category": "noun",
+        "meaning": "biting"
+      },
+      "lisu": {
+        "category": "verb",
+        "meaning": "to bite"
+      }
+    }
+  },
+  "nek": {
+    "forms": {
+      "neka": {
+        "category": "noun",
+        "meaning": "back"
+      }
+    }
+  },
+  "tol": {
+    "forms": {
+      "tola": {
+        "category": "noun",
+        "meaning": "wind"
+      },
+      "tolu": {
+        "category": "verb",
+        "meaning": "to blow"
+      },
+      "tole": {
+        "category": "adjective",
+        "meaning": "windy"
+      }
+    }
+  },
+  "toh": {
+    "forms": {
+      "toha": {
+        "category": "noun",
+        "meaning": "smoke"
+      },
+      "tohe": {
+        "category": "adjective",
+        "meaning": "smoky"
+      }
+    }
+  },
+  "map": {
+    "forms": {
+      "mapa": {
+        "category": "noun",
+        "meaning": "child"
+      },
+      "mape": {
+        "category": "adjective",
+        "meaning": "childish"
+      }
+    }
+  },
+  "nem": {
+    "forms": {
+      "nema": {
+        "category": "noun",
+        "meaning": "egg"
+      }
+    }
+  },
+  "lih": {
+    "forms": {
+      "liha": {
+        "category": "noun",
+        "meaning": "gift"
+      },
+      "lihu": {
+        "category": "verb",
+        "meaning": "to give"
+      }
+    }
+  },
+  "hah": {
+    "forms": {
+      "haha": {
+        "category": "noun",
+        "meaning": "novelty"
+      },
+      "hahe": {
+        "category": "adjective",
+        "meaning": "new"
+      }
+    }
+  },
+  "heh": {
+    "forms": {
+      "heha": {
+        "category": "noun",
+        "meaning": "goodness"
+      },
+      "hehe": {
+        "category": "adjective",
+        "meaning": "good"
+      }
+    }
+  },
+  "hos": {
+    "forms": {
+      "hosa": {
+        "category": "noun",
+        "meaning": "knowledge"
+      },
+      "hosu": {
+        "category": "verb",
+        "meaning": "to know"
+      },
+      "hose": {
+        "category": "adjective",
+        "meaning": "knowledgeable"
+      }
+    }
+  },
+  "nol": {
+    "forms": {
+      "nola": {
+        "category": "noun",
+        "meaning": "knee"
+      }
+    }
+  },
+  "tih": {
+    "forms": {
+      "tiha": {
+        "category": "noun",
+        "meaning": "sand"
+      },
+      "tihe": {
+        "category": "adjective",
+        "meaning": "sandy"
+      }
+    }
+  },
+  "lop": {
+    "forms": {
+      "lopa": {
+        "category": "noun",
+        "meaning": "laughter"
+      },
+      "lopu": {
+        "category": "verb",
+        "meaning": "to laugh"
+      }
+    }
+  },
+  "tip": {
+    "forms": {
+      "tipa": {
+        "category": "noun",
+        "meaning": "soil"
+      },
+      "tipe": {
+        "category": "adjective",
+        "meaning": "soiled, dirty"
+      }
+    }
+  },
+  "nis": {
+    "forms": {
+      "nisa": {
+        "category": "noun",
+        "meaning": "leaf"
+      },
+      "nise": {
+        "category": "adjective",
+        "meaning": "leafy"
+      }
+    }
+  },
+  "him": {
+    "forms": {
+      "hima": {
+        "category": "noun",
+        "meaning": "red"
+      },
+      "hime": {
+        "category": "adjective",
+        "meaning": "red"
+      }
+    }
+  },
+  "nat": {
+    "forms": {
+      "nata": {
+        "category": "noun",
+        "meaning": "liver"
+      }
+    }
+  },
+  "luh": {
+    "forms": {
+      "luha": {
+        "category": "noun",
+        "meaning": "hiding"
+      },
+      "luhu": {
+        "category": "verb",
+        "meaning": "to hide"
+      }
+    }
+  },
+  "lut": {
+    "forms": {
+      "luta": {
+        "category": "noun",
+        "meaning": "sucking"
+      },
+      "lutu": {
+        "category": "verb",
+        "meaning": "to suck"
+      }
+    }
+  },
+  "lit": {
+    "forms": {
+      "lita": {
+        "category": "noun",
+        "meaning": "load"
+      },
+      "litu": {
+        "category": "verb",
+        "meaning": "to carry"
+      }
+    }
+  },
+  "net": {
+    "forms": {
+      "neta": {
+        "category": "noun",
+        "meaning": "ant"
+      }
+    }
+  },
+  "han": {
+    "forms": {
+      "hana": {
+        "category": "noun",
+        "meaning": "heaviness"
+      },
+      "hane": {
+        "category": "adjective",
+        "meaning": "heavy"
+      }
+    }
+  },
+  "lak": {
+    "forms": {
+      "laka": {
+        "category": "noun",
+        "meaning": "taking"
+      },
+      "laku": {
+        "category": "verb",
+        "meaning": "to take"
+      }
+    }
+  },
+  "hop": {
+    "forms": {
+      "hopa": {
+        "category": "noun",
+        "meaning": "old age"
+      },
+      "hope": {
+        "category": "adjective",
+        "meaning": "old"
+      }
+    }
+  },
+  "hot": {
+    "forms": {
+      "hota": {
+        "category": "noun",
+        "meaning": "thickness"
+      },
+      "hote": {
+        "category": "adjective",
+        "meaning": "thick"
+      }
+    }
+  },
+  "hin": {
+    "forms": {
+      "hina": {
+        "category": "noun",
+        "meaning": "length"
+      },
+      "hine": {
+        "category": "adjective",
+        "meaning": "long"
+      }
+    }
+  },
+  "kup": {
+    "forms": {
+      "kupa": {
+        "category": "noun",
+        "meaning": "wood"
+      }
+    }
+  },
+  "lok": {
+    "forms": {
+      "loka": {
+        "category": "noun",
+        "meaning": "running, run"
+      },
+      "loku": {
+        "category": "verb",
+        "meaning": "to run"
+      }
+    }
+  },
+  "lap": {
+    "forms": {
+      "lapa": {
+        "category": "noun",
+        "meaning": "falling"
+      },
+      "lapu": {
+        "category": "verb",
+        "meaning": "to fall"
+      }
+    }
+  },
+  "nak": {
+    "forms": {
+      "naka": {
+        "category": "noun",
+        "meaning": "eye"
+      },
+      "naku": {
+        "category": "verb",
+        "meaning": "to see"
+      }
+    }
+  },
+  "tom": {
+    "forms": {
+      "toma": {
+        "category": "noun",
+        "meaning": "ash"
+      },
+      "tome": {
+        "category": "adjective",
+        "meaning": "ashy"
+      }
+    }
+  },
+  "nal": {
+    "forms": {
+      "nala": {
+        "category": "noun",
+        "meaning": "tail"
+      }
+    }
+  },
+  "nes": {
+    "forms": {
+      "nesa": {
+        "category": "noun",
+        "meaning": "dog"
+      }
+    }
+  },
+  "los": {
+    "forms": {
+      "losa": {
+        "category": "noun",
+        "meaning": "crying"
+      }
+    }
+  },
+  "lah": {
+    "forms": {
+      "laha": {
+        "category": "noun",
+        "meaning": "knot"
+      },
+      "lahu": {
+        "category": "verb",
+        "meaning": "to tie"
+      }
+    }
+  },
+  "nap": {
+    "forms": {
+      "napa": {
+        "category": "noun",
+        "meaning": "sweetness"
+      },
+      "nape": {
+        "category": "adjective",
+        "meaning": "sweet"
+      }
+    }
+  },
+  "kal": {
+    "forms": {
+      "kala": {
+        "category": "noun",
+        "meaning": "rope"
+      }
+    }
+  },
+  "tuk": {
+    "forms": {
+      "tuka": {
+        "category": "noun",
+        "meaning": "shadow"
+      },
+      "tuke": {
+        "category": "adjective",
+        "meaning": "shadowy"
+      }
+    }
+  },
+  "nin": {
+    "forms": {
+      "nina": {
+        "category": "noun",
+        "meaning": "bird"
+      }
+    }
+  },
+  "tos": {
+    "forms": {
+      "tosa": {
+        "category": "noun",
+        "meaning": "salt"
+      },
+      "tose": {
+        "category": "adjective",
+        "meaning": "salty"
+      }
+    }
+  },
+  "hut": {
+    "forms": {
+      "huta": {
+        "category": "noun",
+        "meaning": "width"
+      }
+    }
+  },
+  "tem": {
+    "forms": {
+      "tema": {
+        "category": "noun",
+        "meaning": "star"
+      },
+      "teme": {
+        "category": "adjective",
+        "meaning": "starry"
+      }
+    }
+  },
+  "lek": {
+    "forms": {
+      "leka": {
+        "category": "noun",
+        "meaning": "powder"
+      },
+      "leku": {
+        "category": "verb",
+        "meaning": "to crush, to grind"
+      }
+    }
+  },
+  "mol": {
+    "forms": {
+      "mola": {
+        "category": "noun",
+        "meaning": "masculinity"
+      },
+      "mole": {
+        "category": "adjective",
+        "meaning": "masculine"
+      }
+    }
+  },
+  "mes": {
+    "forms": {
+      "mesa": {
+        "category": "noun",
+        "meaning": "feminity"
+      },
+      "mese": {
+        "category": "adjective",
+        "meaning": "feminine"
+      }
+    }
+  },
+  "hes": {
+    "forms": {
+      "hesa": {
+        "category": "noun",
+        "meaning": "youth"
+      },
+      "hese": {
+        "category": "adjective",
+        "meaning": "young"
+      }
+    }
+  },
+  "peh": {
+    "forms": {
+      "peha": {
+        "category": "noun",
+        "meaning": "north"
+      },
+      "pehe": {
+        "category": "adjective",
+        "meaning": "north"
+      }
+    }
+  },
+  "pok": {
+    "forms": {
+      "poka": {
+        "category": "noun",
+        "meaning": "south"
+      },
+      "poke": {
+        "category": "adjective",
+        "meaning": "south"
+      }
+    }
+  },
+  "pap": {
+    "forms": {
+      "papa": {
+        "category": "noun",
+        "meaning": "east"
+      },
+      "pape": {
+        "category": "adjective",
+        "meaning": "east"
+      }
+    }
+  },
+  "pih": {
+    "forms": {
+      "piha": {
+        "category": "noun",
+        "meaning": "west"
+      },
+      "pihe": {
+        "category": "adjective",
+        "meaning": "west"
+      }
+    }
+  },
+  "mih": {
+    "forms": {
+      "miha": {
+        "category": "noun",
+        "meaning": "human, person"
+      }
+    }
+  },
+  "topam": {
+    "forms": {
+      "topama": {
+        "category": "noun",
+        "meaning": "plain"
+      }
+    }
+  },
+  "lin": {
+    "forms": {
+      "lina": {
+        "category": "noun",
+        "meaning": "arrival"
+      }
+    }
+  },
+  "pas": {
+    "forms": {
+      "pasa": {
+        "category": "noun",
+        "meaning": "place, location"
+      }
+    }
+  }
 }

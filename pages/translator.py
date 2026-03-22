@@ -24,7 +24,30 @@ def normalize_simple_mapping(data):
 
     mapping = {}
     for left, right in data.items():
-        if not isinstance(left, str) or not isinstance(right, str):
+        if not isinstance(left, str):
+            continue
+
+        if isinstance(right, dict):
+            forms = right.get("forms", {})
+            if isinstance(forms, dict):
+                for form, form_entry in forms.items():
+                    if not isinstance(form, str) or not isinstance(form_entry, dict):
+                        continue
+                    english = form_entry.get("meaning")
+                    if isinstance(english, list):
+                        english = ", ".join(english)
+                    if isinstance(english, str) and english:
+                        mapping[english.lower()] = form.lower()
+                continue
+
+            english = right.get("meaning")
+            if isinstance(english, list):
+                english = ", ".join(english)
+            if isinstance(english, str) and english:
+                mapping[english.lower()] = left.lower()
+            continue
+
+        if not isinstance(right, str):
             continue
 
         left_english = looks_like_english_gloss(left)

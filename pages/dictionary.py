@@ -38,6 +38,9 @@ def is_inverted_mapping(data):
 
 
 def normalize_simple_entry(left, right):
+    if isinstance(right, dict):
+        return None
+
     if not isinstance(left, str) or not isinstance(right, str):
         return None
 
@@ -74,6 +77,44 @@ def normalize_compound_entry(k, data):
     if isinstance(english, list):
         english = ", ".join(english)
     return {"Type": "Compound", "English": english, "Conlang": conlang, "Category": category}
+
+
+def normalize_root_entries(root, entry):
+    if isinstance(entry, str):
+        normalized = normalize_simple_entry(root, entry)
+        if normalized:
+            return [{"Type": "Base", "Root": root, **normalized, "Category": ""}]
+        return []
+
+    if not isinstance(entry, dict):
+        return []
+
+    rows = []
+    forms = entry.get("forms", {})
+    if isinstance(forms, dict):
+        for form, form_entry in forms.items():
+            if not isinstance(form, str) or not isinstance(form_entry, dict):
+                continue
+            meaning = form_entry.get("meaning", "")
+            category = form_entry.get("category", "")
+            if isinstance(meaning, list):
+                meaning = ", ".join(meaning)
+            if isinstance(meaning, str) and meaning:
+                rows.append(
+                    {
+                        "Type": "Base",
+                        "Root": root,
+                        "English": meaning,
+                        "Conlang": form,
+                        "Category": category,
+                    }
+                )
+
+    legacy_meaning = entry.get("meaning", "")
+    if not rows and isinstance(legacy_meaning, str) and legacy_meaning:
+        rows.append({"Type": "Base", "Root": root, "English": legacy_meaning, "Conlang": root, "Category": ""})
+
+    return rows
 
 
 st.title("Dictionary")
@@ -150,21 +191,19 @@ conlang_query_l = conlang_query.lower()
 rows = []
 if roots:
     for k, v in roots.items():
-        normalized = normalize_simple_entry(k, v)
-        if normalized:
-            rows.append({"Type": "Base", **normalized, "Category": ""})
+        rows.extend(normalize_root_entries(k, v))
 
 if function_words:
     for k, v in function_words.items():
         normalized = normalize_simple_entry(k, v)
         if normalized:
-            rows.append({"Type": "Function", **normalized, "Category": ""})
+            rows.append({"Type": "Function", "Root": "", **normalized, "Category": ""})
 
 if compounds:
     for k, data in compounds.items():
         row = normalize_compound_entry(k, data)
         if row:
-            rows.append(row)
+            rows.append({"Root": "", **row})
 
 if english_query_l:
     rows = [r for r in rows if english_query_l in r["English"].lower()]
