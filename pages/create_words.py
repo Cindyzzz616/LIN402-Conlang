@@ -23,30 +23,39 @@ WORD_CLASS_SUFFIXES = {
 }
 
 
+def load_json_file(path, default):
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return default
+
+
 def load_inventory():
     with open("phonemic_inventory.json", encoding="utf-8") as f:
         return json.load(f)
 
 
 def load_roots():
-    try:
-        with open("roots.json", encoding="utf-8") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return {}
+    return load_json_file("roots.json", {})
 
 
 def load_compounds():
-    try:
-        with open("compound_words.json", encoding="utf-8") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return {}
+    return load_json_file("compound_words.json", {})
+
+
+def load_derivation_rules():
+    return load_json_file("derivation_rules.json", {})
 
 
 def save_roots(roots):
     with open("roots.json", "w", encoding="utf-8") as f:
         json.dump(roots, f, indent=2, ensure_ascii=False)
+
+
+def save_compounds(compounds):
+    with open("compound_words.json", "w", encoding="utf-8") as f:
+        json.dump(compounds, f, indent=2, ensure_ascii=False)
 
 
 def build_root_entry(root, forms):
@@ -122,6 +131,127 @@ def generate_unique_root(pattern, consonants, vowels, required_prefix=None, max_
     return candidate
 
 
+def normalize_rule_category(rule_name):
+    if rule_name.endswith(" noun"):
+        return "noun"
+    return rule_name
+
+
+def build_base_lookup_entries(roots):
+    entries = []
+    for root, entry in roots.items():
+        if not isinstance(root, str):
+            continue
+
+        forms = entry.get("forms", {}) if isinstance(entry, dict) else {}
+        if isinstance(forms, dict) and forms:
+            meanings = []
+            categories = []
+            for form_entry in forms.values():
+                if not isinstance(form_entry, dict):
+                    continue
+                meaning = form_entry.get("meaning", "")
+                if isinstance(meaning, list):
+                    meaning = ", ".join(meaning)
+                category = form_entry.get("category", "")
+                if isinstance(meaning, str) and meaning:
+                    meanings.append(meaning)
+                if isinstance(category, str) and category:
+                    categories.append(category)
+
+            unique_meanings = ", ".join(dict.fromkeys(meanings))
+            unique_categories = ", ".join(dict.fromkeys(categories)) or "uncategorized"
+            if unique_meanings:
+                entries.append(
+                    {
+                        "root": root,
+                        "meaning": unique_meanings,
+                        "category": unique_categories,
+                        "label": f"{root} ({unique_categories}) -> {unique_meanings}",
+                    }
+                )
+        elif isinstance(entry, dict):
+            meaning = entry.get("meaning", "")
+            if isinstance(meaning, list):
+                meaning = ", ".join(meaning)
+            if isinstance(meaning, str) and meaning:
+                entries.append(
+                    {
+                        "root": root,
+                        "meaning": meaning,
+                        "category": "",
+                        "label": f"{root} -> {meaning}",
+                    }
+                )
+    return entries
+
+
+def resolve_compound_component(slot_name, lookup_entries):
+    mode = st.radio(
+        f"{slot_name} source",
+        ["Lookup dictionary", "Enter manually"],
+        horizontal=True,
+        key=f"{slot_name}_source_mode",
+    )
+
+    if mode == "Lookup dictionary":
+        english_query = st.text_input(
+            f"{slot_name} English lookup",
+            key=f"{slot_name}_english_lookup_query",
+            help="Search by English meaning.",
+        ).strip().lower()
+        conlang_query = st.text_input(
+            f"{slot_name} Conlang lookup",
+            key=f"{slot_name}_conlang_lookup_query",
+            help="Search by the base root in the conlang.",
+        ).strip().lower()
+        filtered_entries = [
+            entry
+            for entry in lookup_entries
+            if (not english_query or english_query in entry["meaning"].lower())
+            and (not conlang_query or conlang_query in entry["root"].lower())
+        ]
+        if not filtered_entries:
+            st.warning(f"No base words matched the {slot_name.lower()} lookup.")
+            return None
+
+        selected_label = st.selectbox(
+            f"{slot_name} base word",
+            options=[entry["label"] for entry in filtered_entries],
+            key=f"{slot_name}_lookup_choice",
+        )
+        selected_entry = next(entry for entry in filtered_entries if entry["label"] == selected_label)
+        st.caption(f"{slot_name}: using root `{selected_entry['root']}` with meaning `{selected_entry['meaning']}`.")
+        return {"root": selected_entry["root"], "meaning": selected_entry["meaning"]}
+
+    manual_root = st.text_input(
+        f"{slot_name} root",
+        key=f"{slot_name}_manual_root",
+        help="Enter the base root directly.",
+    ).strip()
+    manual_meaning = st.text_input(
+        f"{slot_name} meaning",
+        key=f"{slot_name}_manual_meaning",
+        help="English gloss for this base root.",
+    ).strip()
+    if manual_root:
+        st.caption(f"{slot_name}: manual root `{manual_root}`.")
+    if manual_root and manual_meaning:
+        return {"root": manual_root, "meaning": manual_meaning}
+    return None
+
+
+def build_compound_lemma(first_root, second_root, suffix, consonants):
+    clean_suffix = suffix.lstrip("-")
+    if not first_root or not second_root:
+        return ""
+
+    left_ends_consonant = first_root[-1] in consonants
+    right_starts_consonant = second_root[0] in consonants
+    joiner = "'" if left_ends_consonant and right_starts_consonant else ""
+    return f"{first_root}{joiner}{second_root}{clean_suffix}"
+
+
 st.title("Create Words")
 
 if "root_pattern" not in st.session_state:
@@ -134,27 +264,112 @@ if "saved_lemma" not in st.session_state:
     st.session_state.saved_lemma = ""
 if "saved_forms" not in st.session_state:
     st.session_state.saved_forms = []
+if "saved_target_file" not in st.session_state:
+    st.session_state.saved_target_file = ""
 
 mode = st.radio("Choose what to create", ["Root", "Compound"], horizontal=True)
-
-if mode == "Compound":
-    st.info("Compound creation flow is ready for your next instructions.")
-    st.stop()
 
 inventory = load_inventory()
 consonants = [p for p, v in inventory["phonemes"].items() if v["type"] == "consonant"]
 vowels = [p for p, v in inventory["phonemes"].items() if v["type"] == "vowel"]
+roots = load_roots()
+derivation_rules = load_derivation_rules()
 
 default_gloss = st.query_params.get("new_word", "")
 
 if st.session_state.saved_lemma:
     saved_forms = ", ".join(st.session_state.saved_forms)
     st.success(
-        f"Saved `{st.session_state.saved_lemma}` to `roots.json`"
+        f"Saved `{st.session_state.saved_lemma}` to `{st.session_state.saved_target_file or 'roots.json'}`"
         f" with forms: {saved_forms}."
     )
     st.session_state.saved_lemma = ""
     st.session_state.saved_forms = []
+    st.session_state.saved_target_file = ""
+
+if mode == "Compound":
+    st.subheader("Compound Builder")
+    st.caption("Choose two base roots from the dictionary or enter them manually, then pick the category and suffix.")
+
+    lookup_entries = build_base_lookup_entries(roots)
+    left_col, right_col = st.columns(2)
+    with left_col:
+        first_component = resolve_compound_component("First word", lookup_entries)
+    with right_col:
+        second_component = resolve_compound_component("Second word", lookup_entries)
+
+    compound_meaning = st.text_input(
+        "Compound meaning",
+        value=default_gloss,
+        help="English gloss for the finished compound.",
+    ).strip()
+
+    available_categories = sorted({normalize_rule_category(name) for name in derivation_rules}) or ["noun"]
+    syntactic_category = st.selectbox("Syntactic category", available_categories)
+
+    suffix_options = []
+    for rule_name, rule_config in derivation_rules.items():
+        suffix = rule_config.get("suffix", "")
+        if not suffix:
+            continue
+        normalized_category = normalize_rule_category(rule_name)
+        label = f"{rule_name} ({suffix})"
+        suffix_options.append(
+            {
+                "label": label,
+                "rule_name": rule_name,
+                "suffix": suffix,
+                "category": normalized_category,
+            }
+        )
+
+    matching_suffix_options = [option for option in suffix_options if option["category"] == syntactic_category]
+    if not matching_suffix_options:
+        st.error(f"No suffixes in derivation_rules.json match the category `{syntactic_category}`.")
+        st.stop()
+
+    selected_suffix_label = st.selectbox(
+        "Suffix from derivation rules",
+        options=[option["label"] for option in matching_suffix_options],
+    )
+    selected_suffix = next(option for option in matching_suffix_options if option["label"] == selected_suffix_label)
+
+    first_root = first_component["root"] if first_component else ""
+    second_root = second_component["root"] if second_component else ""
+    compound_lemma = build_compound_lemma(first_root, second_root, selected_suffix["suffix"], consonants)
+
+    st.subheader("Compound Preview")
+    st.code(compound_lemma or "(choose both base words to preview the compound)", language="text")
+    if first_root and second_root and first_root[-1] in consonants and second_root[0] in consonants:
+        st.caption("Inserted `'` between the two roots because the boundary would otherwise create a consonant cluster.")
+
+    if st.button("Save Compound", type="primary"):
+        if not first_component or not second_component:
+            st.error("Choose or enter both base words before saving the compound.")
+        elif not compound_meaning:
+            st.error("Add an English meaning for the compound.")
+        elif not compound_lemma:
+            st.error("The compound lemma could not be generated.")
+        elif is_lemma_taken(compound_lemma):
+            st.error(f"`{compound_lemma}` is already in `roots.json` or `compound_words.json`.")
+        else:
+            compounds = load_compounds()
+            compounds[compound_lemma] = {
+                "roots": {
+                    first_component["root"]: first_component["meaning"],
+                    second_component["root"]: second_component["meaning"],
+                },
+                "meaning": compound_meaning,
+                "syntactic_category": syntactic_category,
+            }
+            save_compounds(compounds)
+            st.session_state.saved_lemma = compound_lemma
+            st.session_state.saved_forms = [selected_suffix["rule_name"]]
+            st.session_state.saved_target_file = "compound_words.json"
+            st.query_params["new_word"] = compound_meaning
+            st.rerun()
+
+    st.stop()
 
 selected_noun_class = st.selectbox(
     "Noun class",
@@ -279,6 +494,7 @@ if selected_lemma:
                     save_roots(roots)
                     st.session_state.saved_lemma = selected_lemma
                     st.session_state.saved_forms = list(kept_forms.keys())
+                    st.session_state.saved_target_file = "roots.json"
                     st.session_state.candidate_root = ""
                     st.session_state.manual_lemma = ""
                     st.query_params["new_word"] = default_gloss

@@ -240,6 +240,10 @@
       "lona": {
         "category": "noun",
         "meaning": "creation"
+      },
+      "lonu": {
+        "category": "verb",
+        "meaning": "to create, to make"
       }
     }
   },
@@ -471,13 +475,13 @@
       }
     }
   },
-  "heh": {
+  "hoh": {
     "forms": {
-      "heha": {
+      "hoha": {
         "category": "noun",
         "meaning": "goodness"
       },
-      "hehe": {
+      "hohe": {
         "category": "adjective",
         "meaning": "good"
       }
@@ -968,6 +972,426 @@
       "pasa": {
         "category": "noun",
         "meaning": "place, location"
+      }
+    }
+  },
+  "sam": {
+    "forms": {
+      "sama": {
+        "category": "noun",
+        "meaning": "time"
+      }
+    }
+  },
+  "hep": {
+    "forms": {
+      "hepa": {
+        "category": "noun",
+        "meaning": "thing"
+      }
+    }
+  },
+  "has": {
+    "forms": {
+      "hasa": {
+        "category": "noun",
+        "meaning": "reason, cause"
+      },
+      "hasu": {
+        "category": "verb",
+        "meaning": "to cause"
+      }
+    }
+  },
+  "kum": {
+    "forms": {
+      "kuma": {
+        "category": "noun",
+        "meaning": "method"
+      }
+    }
+  },
+  "his": {
+    "forms": {
+      "hisa": {
+        "category": "noun",
+        "meaning": "number"
+      },
+      "hisu": {
+        "category": "verb",
+        "meaning": "to count"
+      }
+    }
+  },
+  "hup": {
+    "forms": {
+      "hupa": {
+        "category": "noun",
+        "meaning": "everything"
+      }
+    }
+  },
+  "kam": {
+    "forms": {
+      "kama": {
+        "category": "noun",
+        "meaning": "possession"
+      },
+      "kamu": {
+        "category": "verb",
+        "meaning": "to have"
+      }
+    }
+  },
+  "hon": {
+    "forms": {
+      "hona": {
+        "category": "noun",
+        "meaning": "existence"
+      },
+      "honu": {
+        "category": "verb",
+        "meaning": "to be, to exist"
+      }
+    }
+  },
+  "let": {
+    "forms": {
+      "leta": {
+        "category": "noun",
+        "meaning": "command"
+      },
+      "letu": {
+        "category": "verb",
+        "meaning": "to command"
+      }
+    }
+  },
+  "luk": {
+    "forms": {
+      "luka": {
+        "category": "noun",
+        "meaning": "finding"
+      },
+      "luku": {
+        "category": "verb",
+        "meaning": "find, search"
+      }
+    }
+  },
+  "sop": {
+    "forms": {
+      "sopa": {
+        "category": "noun",
+        "meaning": "the next one, future"
+      },
+      "sope": {
+        "category": "adjective",
+        "meaning": "next"
+      }
+    }
+  },
+  "pitah": {
+    "forms": {
+      "pitaha": {
+        "category": "noun",
+        "meaning": "settlement"
+      },
+      "pitahu": {
+        "category": "verb",
+        "meaning": "to settle"
+      }
+    }
+  },
+  "mum": {
+    "forms": {
+      "muma": {
+        "category": "noun",
+        "meaning": "mutuality"
+      },
+      "mumo": {
+        "category": "adverb",
+        "meaning": "mutually"
+      },
+      "mume": {
+        "category": "adjective",
+        "meaning": "mutual"
+      }
+    }
+  },
+  "kusom": {
+    "forms": {
+      "kusoma": {
+        "category": "noun",
+        "meaning": "brick"
+      }
+    }
+  },
+  "helap": {
+    "forms": {
+      "helapa": {
+        "category": "noun",
+        "meaning": "detail"
+      },
+      "helapo": {
+        "category": "adverb",
+        "meaning": "thoroughly, carefully"
+      },
+      "helape": {
+        "category": "adjective",
+        "meaning": "thorough, careful"
+      }
+    }
+  },
+  "kolom": {
+    "forms": {
+      "koloma": {
+        "category": "noun",
+        "meaning": "baking"
+      },
+      "kolomu": {
+        "category": "verb",
+        "meaning": "to bake"
+      }
+    }
+  },
+  "kek": {
+    "forms": {
+      "keka": {
+        "category": "noun",
+        "meaning": "tool, usage"
+      },
+      "keku": {
+        "category": "verb",
+        "meaning": "to use"
+      }
+    }
+  },
+  "kepal": {
+    "forms": {
+      "kepala": {
+        "category": "noun",
+        "meaning": "bitumen"
+      }
+    }
+  },
+  "kelih": {
+    "forms": {
+      "keliha": {
+        "category": "noun",
+        "meaning": "mortar"
+      }
+    }
+  },
+  "mek": {
+    "forms": {
+      "meka": {
+        "category": "noun",
+        "meaning": "self"
+      }
+    }
+  },
+  "piloh": {
+    "forms": {
+      "piloha": {
+        "category": "noun",
+        "meaning": "city"
+      }
+    }
+  },
+  "kitis": {
+    "forms": {
+      "kitisa": {
+        "category": "noun",
+        "meaning": "building"
+      },
+      "kitisu": {
+        "category": "verb",
+        "meaning": "to build"
+      }
+    }
+  },
+  "kisun": {
+    "forms": {
+      "kisuna": {
+        "category": "noun",
+        "meaning": "tower"
+      }
+    }
+  },
+  "tas": {
+    "forms": {
+      "tasa": {
+        "category": "noun",
+        "meaning": "sky"
+      },
+      "tase": {
+        "category": "adjective",
+        "meaning": "high"
+      }
+    }
+  },
+  "lal": {
+    "forms": {
+      "lala": {
+        "category": "noun",
+        "meaning": "touch"
+      },
+      "lalu": {
+        "category": "verb",
+        "meaning": "to touch"
+      }
+    }
+  },
+  "hom": {
+    "forms": {
+      "homa": {
+        "category": "noun",
+        "meaning": "God, LORD"
+      }
+    }
+  },
+  "leh": {
+    "forms": {
+      "leha": {
+        "category": "noun",
+        "meaning": "bottom"
+      },
+      "lehu": {
+        "category": "verb",
+        "meaning": "to descend"
+      }
+    }
+  },
+  "het": {
+    "forms": {
+      "heta": {
+        "category": "noun",
+        "meaning": "desire"
+      },
+      "hetu": {
+        "category": "verb",
+        "meaning": "to want, to desire"
+      }
+    }
+  },
+  "sel": {
+    "forms": {
+      "sela": {
+        "category": "noun",
+        "meaning": "beginning"
+      },
+      "selu": {
+        "category": "verb",
+        "meaning": "to start, to begin"
+      }
+    }
+  },
+  "mip": {
+    "forms": {
+      "mipa": {
+        "category": "noun",
+        "meaning": "ethnicity, people, race"
+      }
+    }
+  },
+  "seh": {
+    "forms": {
+      "seha": {
+        "category": "noun",
+        "meaning": "plan"
+      },
+      "sehu": {
+        "category": "verb",
+        "meaning": "to plan"
+      }
+    }
+  },
+  "hilit": {
+    "forms": {
+      "hilita": {
+        "category": "noun",
+        "meaning": "possibility"
+      },
+      "hilite": {
+        "category": "adjective",
+        "meaning": "possible"
+      }
+    }
+  },
+  "lenul": {
+    "forms": {
+      "lenula": {
+        "category": "noun",
+        "meaning": "mess, confusion"
+      },
+      "lenulu": {
+        "category": "verb",
+        "meaning": "to mess up, to confuse"
+      }
+    }
+  },
+  "hapuh": {
+    "forms": {
+      "hapuha": {
+        "category": "noun",
+        "meaning": "understanding"
+      },
+      "hapuhu": {
+        "category": "verb",
+        "meaning": "to understand"
+      }
+    }
+  },
+  "hem": {
+    "forms": {
+      "hema": {
+        "category": "noun",
+        "meaning": "end"
+      },
+      "hemu": {
+        "category": "verb",
+        "meaning": "to stop, to end"
+      }
+    }
+  },
+  "lahon": {
+    "forms": {
+      "lahona": {
+        "category": "noun",
+        "meaning": "scattering"
+      },
+      "lahonu": {
+        "category": "verb",
+        "meaning": "to scatter"
+      }
+    }
+  },
+  "malum": {
+    "forms": {
+      "maluma": {
+        "category": "noun",
+        "meaning": "fame, reputation"
+      },
+      "malumu": {
+        "category": "verb",
+        "meaning": "famous"
+      }
+    }
+  },
+  "pilap": {
+    "forms": {
+      "pilapa": {
+        "category": "noun",
+        "meaning": "earth (planet)"
+      }
+    }
+  },
+  "pekun": {
+    "forms": {
+      "pekuna": {
+        "category": "noun",
+        "meaning": "surface"
       }
     }
   }

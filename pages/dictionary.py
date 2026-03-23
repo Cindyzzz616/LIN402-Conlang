@@ -117,8 +117,84 @@ def normalize_root_entries(root, entry):
     return rows
 
 
+def get_category_options(rows):
+    categories = {
+        row["Category"].strip().lower()
+        for row in rows
+        if isinstance(row.get("Category"), str) and row["Category"].strip()
+    }
+    return ["All"] + sorted(categories)
+
+
+def get_entry_type_options(rows):
+    entry_types = {
+        row["Type"]
+        for row in rows
+        if isinstance(row.get("Type"), str) and row["Type"].strip()
+    }
+    return ["All"] + sorted(entry_types)
+
+
 st.title("Dictionary")
 st.caption("Browse generated entries and compounds.")
+
+if st.button("Refresh dictionary"):
+    st.rerun()
+
+roots = load_json("roots.json")
+compounds = load_json("compound_words.json")
+function_words = load_json("function_words.json")
+
+if not roots and not compounds and not function_words:
+    st.info("No dictionary data found. Go to the `Create Words` page first.")
+    st.stop()
+
+default_english_query = st.query_params.get("english", "")
+english_query = st.text_input("English lookup", value=default_english_query).strip()
+conlang_query = st.text_input("Conlang lookup").strip()
+english_query_l = english_query.lower()
+conlang_query_l = conlang_query.lower()
+
+rows = []
+if roots:
+    for k, v in roots.items():
+        rows.extend(normalize_root_entries(k, v))
+
+if function_words:
+    for k, v in function_words.items():
+        normalized = normalize_simple_entry(k, v)
+        if normalized:
+            rows.append({"Type": "Function", "Root": "", **normalized, "Category": "function"})
+
+if compounds:
+    for k, data in compounds.items():
+        row = normalize_compound_entry(k, data)
+        if row:
+            rows.append({"Root": "", **row})
+
+category_filter = st.selectbox("Word category", get_category_options(rows))
+entry_type_filter = st.selectbox("Entry type", get_entry_type_options(rows))
+
+if english_query_l:
+    rows = [r for r in rows if english_query_l in r["English"].lower()]
+if conlang_query_l:
+    rows = [r for r in rows if conlang_query_l in r["Conlang"].lower()]
+if category_filter != "All":
+    rows = [r for r in rows if r["Category"].lower() == category_filter]
+if entry_type_filter != "All":
+    rows = [r for r in rows if r["Type"] == entry_type_filter]
+
+rows = sorted(rows, key=lambda r: (r["English"].lower(), r["Conlang"].lower()))
+
+st.write(f"Entries: {len(rows)}")
+st.dataframe(rows, use_container_width=True, hide_index=True)
+
+if english_query_l and not rows:
+    st.warning(f"No results for English word: `{english_query}`")
+    st.write("Do you want to generate this word in the conlang?")
+    if st.button("Yes, go to Create Words"):
+        st.query_params["new_word"] = english_query
+        st.switch_page("pages/create_words.py")
 
 st.markdown('''
 ## Design Rationale
@@ -170,54 +246,3 @@ The language intentionally avoids some strategies common in natural languages:
 - **Zero derivation (conversion)**  
   - Avoided because it creates ambiguity about a word’s syntactic category, making the language harder to learn and more difficult to parse computationally.
 ''')
-
-if st.button("Refresh dictionary"):
-    st.rerun()
-
-roots = load_json("roots.json")
-compounds = load_json("compound_words.json")
-function_words = load_json("function_words.json")
-
-if not roots and not compounds and not function_words:
-    st.info("No dictionary data found. Go to the `Create Words` page first.")
-    st.stop()
-
-default_english_query = st.query_params.get("english", "")
-english_query = st.text_input("English lookup", value=default_english_query).strip()
-conlang_query = st.text_input("Conlang lookup").strip()
-english_query_l = english_query.lower()
-conlang_query_l = conlang_query.lower()
-
-rows = []
-if roots:
-    for k, v in roots.items():
-        rows.extend(normalize_root_entries(k, v))
-
-if function_words:
-    for k, v in function_words.items():
-        normalized = normalize_simple_entry(k, v)
-        if normalized:
-            rows.append({"Type": "Function", "Root": "", **normalized, "Category": ""})
-
-if compounds:
-    for k, data in compounds.items():
-        row = normalize_compound_entry(k, data)
-        if row:
-            rows.append({"Root": "", **row})
-
-if english_query_l:
-    rows = [r for r in rows if english_query_l in r["English"].lower()]
-if conlang_query_l:
-    rows = [r for r in rows if conlang_query_l in r["Conlang"].lower()]
-
-rows = sorted(rows, key=lambda r: (r["English"].lower(), r["Conlang"].lower()))
-
-st.write(f"Entries: {len(rows)}")
-st.dataframe(rows, use_container_width=True, hide_index=True)
-
-if english_query_l and not rows:
-    st.warning(f"No results for English word: `{english_query}`")
-    st.write("Do you want to generate this word in the conlang?")
-    if st.button("Yes, go to Create Words"):
-        st.query_params["new_word"] = english_query
-        st.switch_page("pages/create_words.py")

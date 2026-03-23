@@ -95,9 +95,12 @@ Content words
     - suffix -o
 
 -ai
+-ia
 -ui
--ei
--oi
+-iu
+-au
+-ua
+
 -an
 -un
 -en

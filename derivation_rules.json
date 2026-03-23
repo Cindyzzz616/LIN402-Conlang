@@ -1,7 +1,9 @@
 {
   "noun": { "suffix": "-a" },
-  "adjective": { "suffix": "-i" },
+  "adjective": { "suffix": "-e" },
   "verb": { "suffix": "-u" },
-  "complementizer": { "suffix": "-e" },
-  "adverb": { "suffix": "-o" }
+  "adverb": { "suffix": "-o" },
+  "plural noun": { "suffix": "-ai" },
+  "collective noun": { "suffix": "-au" },
+  "imperative verb": { "suffix": "-ua" }
 }
