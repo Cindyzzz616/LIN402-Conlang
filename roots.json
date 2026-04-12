@@ -1430,5 +1430,21 @@
         "meaning": "lovely, lovable"
       }
     }
+  },
+  "hih": {
+    "forms": {
+      "hiha": {
+        "category": "noun",
+        "meaning": "life"
+      },
+      "hihu": {
+        "category": "verb",
+        "meaning": "to live"
+      },
+      "hihe": {
+        "category": "adjective",
+        "meaning": "lively"
+      }
+    }
   }
 }
