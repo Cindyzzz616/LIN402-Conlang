@@ -1394,5 +1394,13 @@
         "meaning": "surface"
       }
     }
+  },
+  "potin": {
+    "forms": {
+      "potina": {
+        "category": "noun",
+        "meaning": "volcano"
+      }
+    }
   }
 }
