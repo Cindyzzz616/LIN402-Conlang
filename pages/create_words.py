@@ -4,6 +4,8 @@ from pathlib import Path
 
 import streamlit as st
 
+from github_sync import GitHubSyncError, is_enabled as github_sync_enabled, update_json_entry
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -60,6 +62,40 @@ def save_roots(roots):
 def save_compounds(compounds):
     with (BASE_DIR / "compound_words.json").open("w", encoding="utf-8") as f:
         json.dump(compounds, f, indent=2, ensure_ascii=False)
+
+
+def persist_root_entry(lemma, entry):
+    roots = load_roots()
+    roots[lemma] = entry
+    save_roots(roots)
+
+    if not github_sync_enabled():
+        return "Saved locally to `roots.json`. GitHub sync is not configured."
+
+    update_json_entry(
+        "roots.json",
+        lemma,
+        entry,
+        commit_message=f"Add root '{lemma}' from Create Words",
+    )
+    return "Saved locally and pushed to GitHub `roots.json`."
+
+
+def persist_compound_entry(lemma, entry):
+    compounds = load_compounds()
+    compounds[lemma] = entry
+    save_compounds(compounds)
+
+    if not github_sync_enabled():
+        return "Saved locally to `compound_words.json`. GitHub sync is not configured."
+
+    update_json_entry(
+        "compound_words.json",
+        lemma,
+        entry,
+        commit_message=f"Add compound '{lemma}' from Create Words",
+    )
+    return "Saved locally and pushed to GitHub `compound_words.json`."
 
 
 def build_root_entry(root, forms):
@@ -270,6 +306,10 @@ if "saved_forms" not in st.session_state:
     st.session_state.saved_forms = []
 if "saved_target_file" not in st.session_state:
     st.session_state.saved_target_file = ""
+if "saved_sync_status" not in st.session_state:
+    st.session_state.saved_sync_status = ""
+if "saved_sync_error" not in st.session_state:
+    st.session_state.saved_sync_error = ""
 
 mode = st.radio("Choose what to create", ["Root", "Compound"], horizontal=True)
 
@@ -287,9 +327,15 @@ if st.session_state.saved_lemma:
         f"Saved `{st.session_state.saved_lemma}` to `{st.session_state.saved_target_file or 'roots.json'}`"
         f" with forms: {saved_forms}."
     )
+    if st.session_state.saved_sync_status:
+        st.info(st.session_state.saved_sync_status)
+    if st.session_state.saved_sync_error:
+        st.error(st.session_state.saved_sync_error)
     st.session_state.saved_lemma = ""
     st.session_state.saved_forms = []
     st.session_state.saved_target_file = ""
+    st.session_state.saved_sync_status = ""
+    st.session_state.saved_sync_error = ""
 
 if mode == "Compound":
     st.subheader("Compound Builder")
@@ -357,8 +403,7 @@ if mode == "Compound":
         elif is_lemma_taken(compound_lemma):
             st.error(f"`{compound_lemma}` is already in `roots.json` or `compound_words.json`.")
         else:
-            compounds = load_compounds()
-            compounds[compound_lemma] = {
+            compound_entry = {
                 "roots": {
                     first_component["root"]: first_component["meaning"],
                     second_component["root"]: second_component["meaning"],
@@ -366,12 +411,25 @@ if mode == "Compound":
                 "meaning": compound_meaning,
                 "syntactic_category": syntactic_category,
             }
-            save_compounds(compounds)
-            st.session_state.saved_lemma = compound_lemma
-            st.session_state.saved_forms = [selected_suffix["rule_name"]]
-            st.session_state.saved_target_file = "compound_words.json"
-            st.query_params["new_word"] = compound_meaning
-            st.rerun()
+            try:
+                st.session_state.saved_sync_status = persist_compound_entry(compound_lemma, compound_entry)
+                st.session_state.saved_sync_error = ""
+                st.session_state.saved_lemma = compound_lemma
+                st.session_state.saved_forms = [selected_suffix["rule_name"]]
+                st.session_state.saved_target_file = "compound_words.json"
+                st.query_params["new_word"] = compound_meaning
+                st.rerun()
+            except GitHubSyncError as exc:
+                st.session_state.saved_sync_status = ""
+                st.session_state.saved_sync_error = (
+                    "Saved locally to `compound_words.json`, but GitHub sync failed: "
+                    f"{exc}"
+                )
+                st.session_state.saved_lemma = compound_lemma
+                st.session_state.saved_forms = [selected_suffix["rule_name"]]
+                st.session_state.saved_target_file = "compound_words.json"
+                st.query_params["new_word"] = compound_meaning
+                st.rerun()
 
     st.stop()
 
@@ -493,13 +551,27 @@ if selected_lemma:
                 if missing_meanings:
                     st.error("Add an English meaning for each kept form: " + ", ".join(missing_meanings))
                 else:
-                    roots = load_roots()
-                    roots[selected_lemma] = build_root_entry(selected_lemma, kept_forms)
-                    save_roots(roots)
-                    st.session_state.saved_lemma = selected_lemma
-                    st.session_state.saved_forms = list(kept_forms.keys())
-                    st.session_state.saved_target_file = "roots.json"
-                    st.session_state.candidate_root = ""
-                    st.session_state.manual_lemma = ""
-                    st.query_params["new_word"] = default_gloss
-                    st.rerun()
+                    root_entry = build_root_entry(selected_lemma, kept_forms)
+                    try:
+                        st.session_state.saved_sync_status = persist_root_entry(selected_lemma, root_entry)
+                        st.session_state.saved_sync_error = ""
+                        st.session_state.saved_lemma = selected_lemma
+                        st.session_state.saved_forms = list(kept_forms.keys())
+                        st.session_state.saved_target_file = "roots.json"
+                        st.session_state.candidate_root = ""
+                        st.session_state.manual_lemma = ""
+                        st.query_params["new_word"] = default_gloss
+                        st.rerun()
+                    except GitHubSyncError as exc:
+                        st.session_state.saved_sync_status = ""
+                        st.session_state.saved_sync_error = (
+                            "Saved locally to `roots.json`, but GitHub sync failed: "
+                            f"{exc}"
+                        )
+                        st.session_state.saved_lemma = selected_lemma
+                        st.session_state.saved_forms = list(kept_forms.keys())
+                        st.session_state.saved_target_file = "roots.json"
+                        st.session_state.candidate_root = ""
+                        st.session_state.manual_lemma = ""
+                        st.query_params["new_word"] = default_gloss
+                        st.rerun()

@@ -4,7 +4,6 @@ import random
 from itertools import product
 from pathlib import Path
 
-
 BASE_DIR = Path(__file__).resolve().parent
 
 # --- utility functions reused from existing scripts ---
