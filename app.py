@@ -2,13 +2,17 @@ import streamlit as st
 import json
 import random
 from itertools import product
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent
 
 # --- utility functions reused from existing scripts ---
 
 def load_lexicon():
     words = []
     ignored = []
-    with open("lexicon.json") as f:
+    with (BASE_DIR / "lexicon.json").open() as f:
         for line in f:
             line = line.strip()
             if not line:
@@ -21,7 +25,8 @@ def load_lexicon():
 
 
 def load_inventory():
-    return json.load(open("phonemic_inventory.json"))
+    with (BASE_DIR / "phonemic_inventory.json").open() as f:
+        return json.load(f)
 
 
 def make_syllable_pool():
@@ -105,9 +110,9 @@ def assign_groups(words, syllables, consonants):
 
 
 def save_mapping(mapping, ignored):
-    with open("lexicon_mapped.json", "w") as f:
+    with (BASE_DIR / "lexicon_mapped.json").open("w") as f:
         json.dump(mapping, f, indent=2)
-    with open("lexicon_ignored.txt", "w") as f:
+    with (BASE_DIR / "lexicon_ignored.txt").open("w") as f:
         f.write("\n".join(ignored))
 
 

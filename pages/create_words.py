@@ -1,7 +1,11 @@
 import json
 import random
+from pathlib import Path
 
 import streamlit as st
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 NOUN_CLASS_PREFIXES = {
@@ -25,14 +29,14 @@ WORD_CLASS_SUFFIXES = {
 
 def load_json_file(path, default):
     try:
-        with open(path, encoding="utf-8") as f:
+        with (BASE_DIR / path).open(encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
         return default
 
 
 def load_inventory():
-    with open("phonemic_inventory.json", encoding="utf-8") as f:
+    with (BASE_DIR / "phonemic_inventory.json").open(encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -49,12 +53,12 @@ def load_derivation_rules():
 
 
 def save_roots(roots):
-    with open("roots.json", "w", encoding="utf-8") as f:
+    with (BASE_DIR / "roots.json").open("w", encoding="utf-8") as f:
         json.dump(roots, f, indent=2, ensure_ascii=False)
 
 
 def save_compounds(compounds):
-    with open("compound_words.json", "w", encoding="utf-8") as f:
+    with (BASE_DIR / "compound_words.json").open("w", encoding="utf-8") as f:
         json.dump(compounds, f, indent=2, ensure_ascii=False)
 
 

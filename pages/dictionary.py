@@ -1,11 +1,15 @@
 import json
+from pathlib import Path
 
 import streamlit as st
 
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
 def load_json(path):
     try:
-        with open(path, encoding="utf-8") as f:
+        with (BASE_DIR / path).open(encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
         return None
