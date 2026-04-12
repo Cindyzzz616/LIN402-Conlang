@@ -50,6 +50,10 @@ def load_compounds():
     return load_json_file("compound_words.json", {})
 
 
+def load_function_words():
+    return load_json_file("function_words.json", {})
+
+
 def load_derivation_rules():
     return load_json_file("derivation_rules.json", {})
 
@@ -62,6 +66,11 @@ def save_roots(roots):
 def save_compounds(compounds):
     with (BASE_DIR / "compound_words.json").open("w", encoding="utf-8") as f:
         json.dump(compounds, f, indent=2, ensure_ascii=False)
+
+
+def save_function_words(function_words):
+    with (BASE_DIR / "function_words.json").open("w", encoding="utf-8") as f:
+        json.dump(function_words, f, indent=2, ensure_ascii=False)
 
 
 def persist_root_entry(lemma, entry):
@@ -98,14 +107,32 @@ def persist_compound_entry(lemma, entry):
     return "Saved locally and pushed to GitHub `compound_words.json`."
 
 
+def persist_function_word(lemma, meaning):
+    function_words = load_function_words()
+    function_words[lemma] = meaning
+    save_function_words(function_words)
+
+    if not github_sync_enabled():
+        return "Saved locally to `function_words.json`. GitHub sync is not configured."
+
+    update_json_entry(
+        "function_words.json",
+        lemma,
+        meaning,
+        commit_message=f"Add function word '{lemma}' from Create Words",
+    )
+    return "Saved locally and pushed to GitHub `function_words.json`."
+
+
 def build_root_entry(root, forms):
     return {"forms": forms}
 
 
 def is_lemma_taken(lemma):
-    """Check if a lemma is already used in roots.json or compound_words.json"""
+    """Check if a lemma is already used in roots.json, compound_words.json, or function_words.json"""
     roots = load_roots()
     compounds = load_compounds()
+    function_words = load_function_words()
 
     for root, entry in roots.items():
         if root == lemma:
@@ -124,6 +151,9 @@ def is_lemma_taken(lemma):
             return True
         if entry.get("lemma") == lemma:
             return True
+
+    if lemma in function_words:
+        return True
 
     return False
 
@@ -311,7 +341,7 @@ if "saved_sync_status" not in st.session_state:
 if "saved_sync_error" not in st.session_state:
     st.session_state.saved_sync_error = ""
 
-mode = st.radio("Choose what to create", ["Root", "Compound"], horizontal=True)
+mode = st.radio("Choose what to create", ["Root", "Compound", "Function Word"], horizontal=True)
 
 inventory = load_inventory()
 consonants = [p for p, v in inventory["phonemes"].items() if v["type"] == "consonant"]
@@ -429,6 +459,54 @@ if mode == "Compound":
                 st.session_state.saved_forms = [selected_suffix["rule_name"]]
                 st.session_state.saved_target_file = "compound_words.json"
                 st.query_params["new_word"] = compound_meaning
+                st.rerun()
+
+    st.stop()
+
+if mode == "Function Word":
+    st.subheader("Function Word Builder")
+    st.caption("Create a closed-class function word and save it to `function_words.json`.")
+
+    function_lemma = st.text_input(
+        "Function word form",
+        help="Enter the conlang form for the function word.",
+    ).strip()
+    function_meaning = st.text_input(
+        "Function word meaning",
+        value=default_gloss,
+        help="English gloss for the function word.",
+    ).strip()
+
+    if function_lemma:
+        st.subheader("Function Word Preview")
+        st.code(function_lemma, language="text")
+
+    if st.button("Save Function Word", type="primary"):
+        if not function_lemma:
+            st.error("Enter the function word form before saving.")
+        elif not function_meaning:
+            st.error("Add an English meaning for the function word.")
+        elif is_lemma_taken(function_lemma):
+            st.error(f"`{function_lemma}` is already in `roots.json`, `compound_words.json`, or `function_words.json`.")
+        else:
+            try:
+                st.session_state.saved_sync_status = persist_function_word(function_lemma, function_meaning)
+                st.session_state.saved_sync_error = ""
+                st.session_state.saved_lemma = function_lemma
+                st.session_state.saved_forms = ["function"]
+                st.session_state.saved_target_file = "function_words.json"
+                st.query_params["new_word"] = function_meaning
+                st.rerun()
+            except GitHubSyncError as exc:
+                st.session_state.saved_sync_status = ""
+                st.session_state.saved_sync_error = (
+                    "Saved locally to `function_words.json`, but GitHub sync failed: "
+                    f"{exc}"
+                )
+                st.session_state.saved_lemma = function_lemma
+                st.session_state.saved_forms = ["function"]
+                st.session_state.saved_target_file = "function_words.json"
+                st.query_params["new_word"] = function_meaning
                 st.rerun()
 
     st.stop()
