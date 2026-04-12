@@ -1446,5 +1446,25 @@
         "meaning": "lively"
       }
     }
+  },
+  "heh": {
+    "forms": {
+      "heha": {
+        "category": "noun",
+        "meaning": "jealousy"
+      },
+      "heho": {
+        "category": "adverb",
+        "meaning": "jealously"
+      },
+      "hehu": {
+        "category": "verb",
+        "meaning": "to be jealous of"
+      },
+      "hehe": {
+        "category": "adjective",
+        "meaning": "jealous"
+      }
+    }
   }
 }
