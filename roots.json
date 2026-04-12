@@ -1410,5 +1410,25 @@
         "meaning": "bro"
       }
     }
+  },
+  "lul": {
+    "forms": {
+      "lula": {
+        "category": "noun",
+        "meaning": "love"
+      },
+      "lulo": {
+        "category": "adverb",
+        "meaning": "lovingly"
+      },
+      "lulu": {
+        "category": "verb",
+        "meaning": "to love"
+      },
+      "lule": {
+        "category": "adjective",
+        "meaning": "lovely, lovable"
+      }
+    }
   }
 }
