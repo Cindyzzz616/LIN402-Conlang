@@ -28,6 +28,8 @@ WORD_CLASS_SUFFIXES = {
     "e": "adjective",
 }
 
+DIPHTHONGS = ["ai", "ia", "ui", "iu", "au", "ua"]
+
 
 def load_json_file(path, default):
     try:
@@ -345,7 +347,8 @@ mode = st.radio("Choose what to create", ["Root", "Compound", "Function Word"], 
 
 inventory = load_inventory()
 consonants = [p for p, v in inventory["phonemes"].items() if v["type"] == "consonant"]
-vowels = [p for p, v in inventory["phonemes"].items() if v["type"] == "vowel"]
+simple_vowels = [p for p, v in inventory["phonemes"].items() if v["type"] == "vowel"]
+vowels = simple_vowels + DIPHTHONGS
 roots = load_roots()
 derivation_rules = load_derivation_rules()
 
@@ -526,6 +529,10 @@ selected_lemma = ""
 if lemma_mode == "Randomly generate":
     st.subheader("Syllable Structure")
     st.code(st.session_state.root_pattern if st.session_state.root_pattern else "(empty)", language="text")
+    st.caption(
+        "Each `V` slot can generate a simple vowel or one of the diphthongs "
+        "`ai`, `ia`, `ui`, `iu`, `au`, `ua`."
+    )
 
     c_col, v_col, back_col, clear_col = st.columns(4)
     if c_col.button("C", key="btn_c"):
