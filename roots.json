@@ -1474,5 +1474,13 @@
         "meaning": "team"
       }
     }
+  },
+  "pepiun": {
+    "forms": {
+      "pepiuna": {
+        "category": "noun",
+        "meaning": "university"
+      }
+    }
   }
 }
