@@ -213,5 +213,14 @@
     },
     "meaning": "older brother",
     "syntactic_category": "noun"
+  },
+  "hes'mian'maupa": {
+    "roots": {
+      "hes": "youth, young",
+      "mian": "masculinity, male",
+      "maup": "sibling"
+    },
+    "meaning": "younger brother",
+    "syntactic_category": "noun"
   }
 }
