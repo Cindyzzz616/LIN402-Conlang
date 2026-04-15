@@ -1650,5 +1650,13 @@
         "meaning": "to submit"
       }
     }
+  },
+  "kolok": {
+    "forms": {
+      "koloka": {
+        "category": "noun",
+        "meaning": "word"
+      }
+    }
   }
 }
