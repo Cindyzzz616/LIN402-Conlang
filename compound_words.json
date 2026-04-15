@@ -139,5 +139,13 @@
     },
     "meaning": "younger sister",
     "syntactic_category": "noun"
+  },
+  "tas'niula": {
+    "roots": {
+      "tas": "sky, high",
+      "niul": "animal, animalistic"
+    },
+    "meaning": "bird",
+    "syntactic_category": "noun"
   }
 }
