@@ -1598,5 +1598,17 @@
         "meaning": "church"
       }
     }
+  },
+  "huil": {
+    "forms": {
+      "huila": {
+        "category": "noun",
+        "meaning": "appreciation, thankfulness"
+      },
+      "huilo": {
+        "category": "adverb",
+        "meaning": "thankfully"
+      }
+    }
   }
 }
