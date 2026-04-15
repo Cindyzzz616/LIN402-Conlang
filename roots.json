@@ -1722,5 +1722,17 @@
         "meaning": "Tomorrow"
       }
     }
+  },
+  "nuanon": {
+    "forms": {
+      "nuanona": {
+        "category": "noun",
+        "meaning": "Fruit"
+      },
+      "nuanone": {
+        "category": "adjective",
+        "meaning": "Fruity"
+      }
+    }
   }
 }
