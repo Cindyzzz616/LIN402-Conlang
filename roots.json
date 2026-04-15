@@ -1514,5 +1514,17 @@
         "meaning": "female"
       }
     }
+  },
+  "mian": {
+    "forms": {
+      "miana": {
+        "category": "noun",
+        "meaning": "masculinity"
+      },
+      "miane": {
+        "category": "adjective",
+        "meaning": "male"
+      }
+    }
   }
 }
