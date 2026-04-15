@@ -29,6 +29,7 @@ WORD_CLASS_SUFFIXES = {
 }
 
 DIPHTHONGS = ["ai", "ia", "ui", "iu", "au", "ua"]
+COMPOUND_EXCLUDED_RULES = {"imperative verb", "plural noun", "collective noun"}
 
 
 def load_json_file(path, default):
@@ -313,15 +314,32 @@ def resolve_compound_component(slot_name, lookup_entries):
     return None
 
 
-def build_compound_lemma(first_root, second_root, suffix, consonants):
+def build_compound_lemma(roots, suffix, consonants):
     clean_suffix = suffix.lstrip("-")
-    if not first_root or not second_root:
+    valid_roots = [root for root in roots if root]
+    if len(valid_roots) < 2:
         return ""
 
-    left_ends_consonant = first_root[-1] in consonants
-    right_starts_consonant = second_root[0] in consonants
-    joiner = "'" if left_ends_consonant and right_starts_consonant else ""
-    return f"{first_root}{joiner}{second_root}{clean_suffix}"
+    lemma_parts = [valid_roots[0]]
+    for next_root in valid_roots[1:]:
+        previous_root = lemma_parts[-1].rstrip("'")
+        left_ends_consonant = previous_root[-1] in consonants
+        right_starts_consonant = next_root[0] in consonants
+        joiner = "'" if left_ends_consonant and right_starts_consonant else ""
+        lemma_parts.append(f"{joiner}{next_root}")
+    return f"{''.join(lemma_parts)}{clean_suffix}"
+
+
+def count_compound_joiners(roots, consonants):
+    valid_roots = [root for root in roots if root]
+    if len(valid_roots) < 2:
+        return 0
+
+    joiner_count = 0
+    for left_root, right_root in zip(valid_roots, valid_roots[1:]):
+        if left_root[-1] in consonants and right_root[0] in consonants:
+            joiner_count += 1
+    return joiner_count
 
 
 st.title("Create Words")
@@ -372,14 +390,16 @@ if st.session_state.saved_lemma:
 
 if mode == "Compound":
     st.subheader("Compound Builder")
-    st.caption("Choose two base roots from the dictionary or enter them manually, then pick the category and suffix.")
+    st.caption("Choose two or three base roots from the dictionary or enter them manually, then pick the category and suffix.")
 
     lookup_entries = build_base_lookup_entries(roots)
-    left_col, right_col = st.columns(2)
-    with left_col:
+    first_col, second_col, third_col = st.columns(3)
+    with first_col:
         first_component = resolve_compound_component("First word", lookup_entries)
-    with right_col:
+    with second_col:
         second_component = resolve_compound_component("Second word", lookup_entries)
+    with third_col:
+        third_component = resolve_compound_component("Third word (optional)", lookup_entries)
 
     compound_meaning = st.text_input(
         "Compound meaning",
@@ -387,11 +407,17 @@ if mode == "Compound":
         help="English gloss for the finished compound.",
     ).strip()
 
-    available_categories = sorted({normalize_rule_category(name) for name in derivation_rules}) or ["noun"]
+    compound_derivation_rules = {
+        rule_name: rule_config
+        for rule_name, rule_config in derivation_rules.items()
+        if rule_name not in COMPOUND_EXCLUDED_RULES
+    }
+
+    available_categories = sorted({normalize_rule_category(name) for name in compound_derivation_rules}) or ["noun"]
     syntactic_category = st.selectbox("Syntactic category", available_categories)
 
     suffix_options = []
-    for rule_name, rule_config in derivation_rules.items():
+    for rule_name, rule_config in compound_derivation_rules.items():
         suffix = rule_config.get("suffix", "")
         if not suffix:
             continue
@@ -417,14 +443,17 @@ if mode == "Compound":
     )
     selected_suffix = next(option for option in matching_suffix_options if option["label"] == selected_suffix_label)
 
-    first_root = first_component["root"] if first_component else ""
-    second_root = second_component["root"] if second_component else ""
-    compound_lemma = build_compound_lemma(first_root, second_root, selected_suffix["suffix"], consonants)
+    selected_components = [component for component in [first_component, second_component, third_component] if component]
+    selected_roots = [component["root"] for component in selected_components]
+    compound_lemma = build_compound_lemma(selected_roots, selected_suffix["suffix"], consonants)
+    joiner_count = count_compound_joiners(selected_roots, consonants)
 
     st.subheader("Compound Preview")
-    st.code(compound_lemma or "(choose both base words to preview the compound)", language="text")
-    if first_root and second_root and first_root[-1] in consonants and second_root[0] in consonants:
-        st.caption("Inserted `'` between the two roots because the boundary would otherwise create a consonant cluster.")
+    st.code(compound_lemma or "(choose at least the first two base words to preview the compound)", language="text")
+    if joiner_count == 1:
+        st.caption("Inserted `'` at one root boundary because it would otherwise create a consonant cluster.")
+    elif joiner_count > 1:
+        st.caption(f"Inserted `'` at {joiner_count} root boundaries because they would otherwise create consonant clusters.")
 
     if st.button("Save Compound", type="primary"):
         if not first_component or not second_component:
@@ -437,10 +466,7 @@ if mode == "Compound":
             st.error(f"`{compound_lemma}` is already in `roots.json` or `compound_words.json`.")
         else:
             compound_entry = {
-                "roots": {
-                    first_component["root"]: first_component["meaning"],
-                    second_component["root"]: second_component["meaning"],
-                },
+                "roots": {component["root"]: component["meaning"] for component in selected_components},
                 "meaning": compound_meaning,
                 "syntactic_category": syntactic_category,
             }
