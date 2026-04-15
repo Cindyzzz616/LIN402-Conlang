@@ -2,7 +2,7 @@
   "lun-nel-a": {
     "roots": {
       "lun": "animal",
-      "nel": "sky"
+      "tas": "sky"
     },
     "meaning": "bird",
     "syntactic_category": "noun"
@@ -54,14 +54,6 @@
       "san": "female"
     },
     "meaning": "woman",
-    "syntactic_category": "noun"
-  },
-  "pih-kis-a": {
-    "roots": {
-      "pih": "person",
-      "kis": "small"
-    },
-    "meaning": "child",
     "syntactic_category": "noun"
   },
   "tih-sak-a": {
@@ -147,50 +139,5 @@
     },
     "meaning": "younger sister",
     "syntactic_category": "noun"
-  },
-  "nek-u": {
-    "roots": {
-      "nek": "head"
-    },
-    "meaning": "think",
-    "syntactic_category": "verb"
-  },
-  "sep-u": {
-    "roots": {
-      "sep": "eye"
-    },
-    "meaning": "see",
-    "syntactic_category": "verb"
-  },
-  "net-u": {
-    "roots": {
-      "net": "nose"
-    },
-    "meaning": "smell",
-    "syntactic_category": "verb"
-  },
-  "hep-u": {
-    "roots": {
-      "hep": "ear"
-    },
-    "meaning": "hear",
-    "syntactic_category": "verb"
-  },
-  "lon-u": {
-    "roots": {
-      "lon": "tongue"
-    },
-    "meaning": "say",
-    "syntactic_category": "verb"
-  },
-  "sal-u": {
-    "roots": {
-      "sal": "mouth"
-    },
-    "meaning": [
-      "eat",
-      "drink"
-    ],
-    "syntactic_category": "verb"
   }
 }

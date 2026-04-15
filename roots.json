@@ -24,6 +24,14 @@
       "nota": {
         "category": "noun",
         "meaning": "nose"
+      },
+      "notu": {
+        "category": "verb",
+        "meaning": "to smell"
+      },
+      "note": {
+        "category": "adjective",
+        "meaning": "nasal"
       }
     }
   },
@@ -60,14 +68,6 @@
       "namu": {
         "category": "verb",
         "meaning": "to eat, to drink"
-      }
-    }
-  },
-  "nus": {
-    "forms": {
-      "nusa": {
-        "category": "noun",
-        "meaning": "tongue"
       }
     }
   },
