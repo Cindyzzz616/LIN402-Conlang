@@ -1754,5 +1754,17 @@
         "meaning": "Book"
       }
     }
+  },
+  "kumiap": {
+    "forms": {
+      "kumiapa": {
+        "category": "noun",
+        "meaning": "attachment"
+      },
+      "kumiapu": {
+        "category": "verb",
+        "meaning": "to attach"
+      }
+    }
   }
 }
