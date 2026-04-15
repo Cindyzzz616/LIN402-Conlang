@@ -1630,5 +1630,13 @@
         "meaning": "greeting, hello"
       }
     }
+  },
+  "hok": {
+    "forms": {
+      "hoka": {
+        "category": "noun",
+        "meaning": "rule"
+      }
+    }
   }
 }
