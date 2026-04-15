@@ -204,5 +204,14 @@
     },
     "meaning": "older brother",
     "syntactic_category": "noun"
+  },
+  "hop'mian'maupa": {
+    "roots": {
+      "hop": "old age, old",
+      "mian": "masculinity, male",
+      "maup": "sibling"
+    },
+    "meaning": "older brother",
+    "syntactic_category": "noun"
   }
 }
