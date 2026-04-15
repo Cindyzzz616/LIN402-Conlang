@@ -1,36 +1,4 @@
 {
-  "pih-sak-a": {
-    "roots": {
-      "pih": "person",
-      "sak": "male"
-    },
-    "meaning": "man",
-    "syntactic_category": "noun"
-  },
-  "pih-san-a": {
-    "roots": {
-      "pih": "person",
-      "san": "female"
-    },
-    "meaning": "woman",
-    "syntactic_category": "noun"
-  },
-  "tih-sak-a": {
-    "roots": {
-      "tih": "spouse",
-      "sak": "male"
-    },
-    "meaning": "husband",
-    "syntactic_category": "noun"
-  },
-  "tih-san-a": {
-    "roots": {
-      "tih": "spouse",
-      "san": "female"
-    },
-    "meaning": "wife",
-    "syntactic_category": "noun"
-  },
   "pup-sak-a": {
     "roots": {
       "pup": "parent",
