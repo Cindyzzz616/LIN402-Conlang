@@ -195,5 +195,32 @@
     },
     "meaning": "older sister",
     "syntactic_category": "noun"
+  },
+  "hop'mian'maupa": {
+    "roots": {
+      "hop": "old age, old",
+      "mian": "masculinity, male",
+      "maup": "sibling"
+    },
+    "meaning": "older brother",
+    "syntactic_category": "noun"
+  },
+  "hes'mian'maupa": {
+    "roots": {
+      "hes": "youth, young",
+      "mian": "masculinity, male",
+      "maup": "sibling"
+    },
+    "meaning": "younger brother",
+    "syntactic_category": "noun"
+  },
+  "hes'maik'maupa": {
+    "roots": {
+      "hes": "youth, young",
+      "maik": "femininity, female",
+      "maup": "sibling"
+    },
+    "meaning": "younger sister",
+    "syntactic_category": "noun"
   }
 }
