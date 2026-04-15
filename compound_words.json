@@ -162,5 +162,13 @@
     },
     "meaning": "husband",
     "syntactic_category": "noun"
+  },
+  "maik'mila": {
+    "roots": {
+      "maik": "femininity, female",
+      "mil": "spouse, spousal"
+    },
+    "meaning": "wife",
+    "syntactic_category": "noun"
   }
 }
