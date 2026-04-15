@@ -179,5 +179,13 @@
     },
     "meaning": "sister",
     "syntactic_category": "noun"
+  },
+  "maik'maupa": {
+    "roots": {
+      "maik": "femininity, female",
+      "maup": "sibling"
+    },
+    "meaning": "sister",
+    "syntactic_category": "noun"
   }
 }
