@@ -1778,5 +1778,17 @@
         "meaning": "late, delayed"
       }
     }
+  },
+  "temim": {
+    "forms": {
+      "temima": {
+        "category": "noun",
+        "meaning": "sun"
+      },
+      "temime": {
+        "category": "adjective",
+        "meaning": "sunny"
+      }
+    }
   }
 }
