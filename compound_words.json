@@ -154,5 +154,13 @@
     },
     "meaning": "man",
     "syntactic_category": "noun"
+  },
+  "mian'mila": {
+    "roots": {
+      "mian": "masculinity, male",
+      "mil": "spouse, spousal"
+    },
+    "meaning": "husband",
+    "syntactic_category": "noun"
   }
 }
