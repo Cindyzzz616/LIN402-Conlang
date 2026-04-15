@@ -1590,5 +1590,13 @@
         "meaning": "cold"
       }
     }
+  },
+  "panet": {
+    "forms": {
+      "paneta": {
+        "category": "noun",
+        "meaning": "church"
+      }
+    }
   }
 }
