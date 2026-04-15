@@ -1502,5 +1502,17 @@
         "meaning": "small"
       }
     }
+  },
+  "maik": {
+    "forms": {
+      "maika": {
+        "category": "noun",
+        "meaning": "femininity"
+      },
+      "maike": {
+        "category": "adjective",
+        "meaning": "female"
+      }
+    }
   }
 }
