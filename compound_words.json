@@ -146,5 +146,13 @@
     },
     "meaning": "woman",
     "syntactic_category": "noun"
+  },
+  "mian'miha": {
+    "roots": {
+      "mian": "masculinity, male",
+      "mih": "human, person"
+    },
+    "meaning": "man",
+    "syntactic_category": "noun"
   }
 }
