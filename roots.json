@@ -1702,5 +1702,17 @@
         "meaning": "To finish, to complete"
       }
     }
+  },
+  "sualul": {
+    "forms": {
+      "sualula": {
+        "category": "noun",
+        "meaning": "past"
+      },
+      "sualule": {
+        "category": "adjective",
+        "meaning": "past"
+      }
+    }
   }
 }
