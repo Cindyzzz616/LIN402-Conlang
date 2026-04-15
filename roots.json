@@ -1670,5 +1670,17 @@
         "meaning": "Blue"
       }
     }
+  },
+  "huip": {
+    "forms": {
+      "huipa": {
+        "category": "noun",
+        "meaning": "Yellow"
+      },
+      "huipe": {
+        "category": "adjective",
+        "meaning": "Yellow"
+      }
+    }
   }
 }
