@@ -1,45 +1,4 @@
 {
-  "lun-nel-a": {
-    "roots": {
-      "lun": "animal",
-      "tas": "sky"
-    },
-    "meaning": "bird",
-    "syntactic_category": "noun"
-  },
-  "lun-hol-a": {
-    "roots": {
-      "lun": "animal",
-      "hol": "water"
-    },
-    "meaning": "fish",
-    "syntactic_category": "noun"
-  },
-  "lun-los-pot-a": {
-    "roots": {
-      "lun": "animal",
-      "los": "dirt/earth",
-      "pot": "long/tall"
-    },
-    "meaning": "snake",
-    "syntactic_category": "noun"
-  },
-  "lun-los-a": {
-    "roots": {
-      "lun": "animal",
-      "los": "dirt/earth"
-    },
-    "meaning": "dog",
-    "syntactic_category": "noun"
-  },
-  "mik-kis-e": {
-    "roots": {
-      "mik": "hot",
-      "kis": "small"
-    },
-    "meaning": "warm",
-    "syntactic_category": "adjective"
-  },
   "pih-sak-a": {
     "roots": {
       "pih": "person",
@@ -185,7 +144,7 @@
       "maik": "femininity, female",
       "mih": "human, person"
     },
-    "meaning": "cool",
+    "meaning": "woman",
     "syntactic_category": "noun"
   }
 }
