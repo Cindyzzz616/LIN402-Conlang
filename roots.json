@@ -1638,5 +1638,17 @@
         "meaning": "rule"
       }
     }
+  },
+  "lotuim": {
+    "forms": {
+      "lotuima": {
+        "category": "noun",
+        "meaning": "submission"
+      },
+      "lotuimu": {
+        "category": "verb",
+        "meaning": "to submit"
+      }
+    }
   }
 }
