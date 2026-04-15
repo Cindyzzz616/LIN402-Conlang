@@ -170,5 +170,14 @@
     },
     "meaning": "wife",
     "syntactic_category": "noun"
+  },
+  "maik'maup'neha": {
+    "roots": {
+      "maik": "femininity, female",
+      "maup": "sibling",
+      "neh": "tongue, language, to say, to speak"
+    },
+    "meaning": "sister",
+    "syntactic_category": "noun"
   }
 }
