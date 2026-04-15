@@ -1610,5 +1610,17 @@
         "meaning": "thankfully"
       }
     }
+  },
+  "hak": {
+    "forms": {
+      "haka": {
+        "category": "noun",
+        "meaning": "apology, sorry"
+      },
+      "hako": {
+        "category": "adverb",
+        "meaning": "apologetically"
+      }
+    }
   }
 }
