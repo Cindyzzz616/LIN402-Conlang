@@ -1578,5 +1578,17 @@
         "meaning": "hot"
       }
     }
+  },
+  "haun": {
+    "forms": {
+      "hauna": {
+        "category": "noun",
+        "meaning": "cold"
+      },
+      "haune": {
+        "category": "adjective",
+        "meaning": "cold"
+      }
+    }
   }
 }
