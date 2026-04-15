@@ -147,5 +147,13 @@
     },
     "meaning": "bird",
     "syntactic_category": "noun"
+  },
+  "tes'niula": {
+    "roots": {
+      "tes": "water, wet",
+      "niul": "animal, animalistic"
+    },
+    "meaning": "fish",
+    "syntactic_category": "noun"
   }
 }
