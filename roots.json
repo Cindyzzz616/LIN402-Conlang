@@ -1766,5 +1766,17 @@
         "meaning": "to attach"
       }
     }
+  },
+  "saik": {
+    "forms": {
+      "saika": {
+        "category": "noun",
+        "meaning": "lateness, delay"
+      },
+      "saike": {
+        "category": "adjective",
+        "meaning": "late, delayed"
+      }
+    }
   }
 }
