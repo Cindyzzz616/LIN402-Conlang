@@ -1474,5 +1474,97 @@
         "meaning": "team"
       }
     }
+  },
+  "pepiun": {
+    "forms": {
+      "pepiuna": {
+        "category": "noun",
+        "meaning": "university"
+      }
+    }
+  },
+  "niul": {
+    "forms": {
+      "niula": {
+        "category": "noun",
+        "meaning": "animal"
+      },
+      "niule": {
+        "category": "adjective",
+        "meaning": "animalistic"
+      }
+    }
+  },
+  "huim": {
+    "forms": {
+      "huime": {
+        "category": "adjective",
+        "meaning": "small"
+      }
+    }
+  },
+  "maik": {
+    "forms": {
+      "maika": {
+        "category": "noun",
+        "meaning": "femininity"
+      },
+      "maike": {
+        "category": "adjective",
+        "meaning": "female"
+      }
+    }
+  },
+  "mian": {
+    "forms": {
+      "miana": {
+        "category": "noun",
+        "meaning": "masculinity"
+      },
+      "miane": {
+        "category": "adjective",
+        "meaning": "male"
+      }
+    }
+  },
+  "mil": {
+    "forms": {
+      "mila": {
+        "category": "noun",
+        "meaning": "spouse"
+      },
+      "mile": {
+        "category": "adjective",
+        "meaning": "spousal"
+      }
+    }
+  },
+  "miuh": {
+    "forms": {
+      "miuha": {
+        "category": "noun",
+        "meaning": "parent"
+      },
+      "miuhe": {
+        "category": "adjective",
+        "meaning": "parental"
+      }
+    }
+  },
+  "maup": {
+    "forms": {
+      "maupa": {
+        "category": "noun",
+        "meaning": "sibling"
+      }
+    }
+  },
+  "niup": {
+    "forms": {
+      "niupa": {
+        "category": "noun",
+        "meaning": "head"
+      }
+    }
   }
 }
