@@ -1658,5 +1658,17 @@
         "meaning": "word"
       }
     }
+  },
+  "hium": {
+    "forms": {
+      "hiuma": {
+        "category": "noun",
+        "meaning": "Blue"
+      },
+      "hiume": {
+        "category": "adjective",
+        "meaning": "Blue"
+      }
+    }
   }
 }
