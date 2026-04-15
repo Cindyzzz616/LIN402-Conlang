@@ -190,5 +190,13 @@
     },
     "meaning": "younger sister",
     "syntactic_category": "noun"
+  },
+  "mian'miuha": {
+    "roots": {
+      "mian": "masculinity, male",
+      "miuh": "parent, parental"
+    },
+    "meaning": "father",
+    "syntactic_category": "noun"
   }
 }
