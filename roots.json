@@ -1714,5 +1714,69 @@
         "meaning": "past"
       }
     }
+  },
+  "sulais": {
+    "forms": {
+      "sulaisa": {
+        "category": "noun",
+        "meaning": "Tomorrow"
+      }
+    }
+  },
+  "nuanon": {
+    "forms": {
+      "nuanona": {
+        "category": "noun",
+        "meaning": "Fruit"
+      },
+      "nuanone": {
+        "category": "adjective",
+        "meaning": "Fruity"
+      }
+    }
+  },
+  "kakam": {
+    "forms": {
+      "kakama": {
+        "category": "noun",
+        "meaning": "Pen, writing"
+      },
+      "kakamu": {
+        "category": "verb",
+        "meaning": "To write"
+      }
+    }
+  },
+  "kulul": {
+    "forms": {
+      "kulula": {
+        "category": "noun",
+        "meaning": "Book"
+      }
+    }
+  },
+  "kumiap": {
+    "forms": {
+      "kumiapa": {
+        "category": "noun",
+        "meaning": "attachment"
+      },
+      "kumiapu": {
+        "category": "verb",
+        "meaning": "to attach"
+      }
+    }
+  },
+  "saik": {
+    "forms": {
+      "saika": {
+        "category": "noun",
+        "meaning": "lateness, delay"
+      },
+      "saike": {
+        "category": "adjective",
+        "meaning": "late, delayed"
+      }
+    }
   }
 }
