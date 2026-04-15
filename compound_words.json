@@ -155,5 +155,13 @@
     },
     "meaning": "fish",
     "syntactic_category": "noun"
+  },
+  "hin'niula": {
+    "roots": {
+      "hin": "length, long",
+      "niul": "animal, animalistic"
+    },
+    "meaning": "reptilia",
+    "syntactic_category": "noun"
   }
 }
