@@ -1526,5 +1526,17 @@
         "meaning": "male"
       }
     }
+  },
+  "mil": {
+    "forms": {
+      "mila": {
+        "category": "noun",
+        "meaning": "spouse"
+      },
+      "mile": {
+        "category": "adjective",
+        "meaning": "spousal"
+      }
+    }
   }
 }
