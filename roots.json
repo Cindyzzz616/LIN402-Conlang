@@ -1566,5 +1566,17 @@
         "meaning": "big"
       }
     }
+  },
+  "huat": {
+    "forms": {
+      "huata": {
+        "category": "noun",
+        "meaning": "heat"
+      },
+      "huate": {
+        "category": "adjective",
+        "meaning": "hot"
+      }
+    }
   }
 }
