@@ -1734,5 +1734,17 @@
         "meaning": "Fruity"
       }
     }
+  },
+  "kakam": {
+    "forms": {
+      "kakama": {
+        "category": "noun",
+        "meaning": "Pen, writing"
+      },
+      "kakamu": {
+        "category": "verb",
+        "meaning": "To write"
+      }
+    }
   }
 }
