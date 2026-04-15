@@ -171,15 +171,6 @@
     "meaning": "wife",
     "syntactic_category": "noun"
   },
-  "maik'maup'neha": {
-    "roots": {
-      "maik": "femininity, female",
-      "maup": "sibling",
-      "neh": "tongue, language, to say, to speak"
-    },
-    "meaning": "sister",
-    "syntactic_category": "noun"
-  },
   "maik'maupa": {
     "roots": {
       "maik": "femininity, female",
@@ -193,7 +184,7 @@
       "mian": "masculinity, male",
       "maup": "sibling"
     },
-    "meaning": "sister",
+    "meaning": "brother",
     "syntactic_category": "noun"
   },
   "hop'maik'maupa": {
@@ -202,7 +193,7 @@
       "maik": "femininity, female",
       "maup": "sibling"
     },
-    "meaning": "older brother",
+    "meaning": "older sister",
     "syntactic_category": "noun"
   }
 }
