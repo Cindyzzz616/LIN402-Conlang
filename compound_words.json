@@ -179,5 +179,13 @@
     },
     "meaning": "cool",
     "syntactic_category": "adjective"
+  },
+  "maik'miha": {
+    "roots": {
+      "maik": "femininity, female",
+      "mih": "human, person"
+    },
+    "meaning": "cool",
+    "syntactic_category": "noun"
   }
 }
