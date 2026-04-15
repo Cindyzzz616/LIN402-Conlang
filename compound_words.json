@@ -187,5 +187,13 @@
     },
     "meaning": "sister",
     "syntactic_category": "noun"
+  },
+  "mian'maupa": {
+    "roots": {
+      "mian": "masculinity, male",
+      "maup": "sibling"
+    },
+    "meaning": "sister",
+    "syntactic_category": "noun"
   }
 }
