@@ -1482,5 +1482,17 @@
         "meaning": "university"
       }
     }
+  },
+  "niul": {
+    "forms": {
+      "niula": {
+        "category": "noun",
+        "meaning": "animal"
+      },
+      "niule": {
+        "category": "adjective",
+        "meaning": "animalistic"
+      }
+    }
   }
 }
