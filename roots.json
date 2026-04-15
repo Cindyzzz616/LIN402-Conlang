@@ -1690,5 +1690,17 @@
         "meaning": "Cat"
       }
     }
+  },
+  "hain": {
+    "forms": {
+      "haina": {
+        "category": "noun",
+        "meaning": "End, completion"
+      },
+      "hainu": {
+        "category": "verb",
+        "meaning": "To finish, to complete"
+      }
+    }
   }
 }
