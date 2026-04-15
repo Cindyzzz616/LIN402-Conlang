@@ -1714,5 +1714,13 @@
         "meaning": "past"
       }
     }
+  },
+  "sulais": {
+    "forms": {
+      "sulaisa": {
+        "category": "noun",
+        "meaning": "Tomorrow"
+      }
+    }
   }
 }
