@@ -163,5 +163,13 @@
     },
     "meaning": "reptilia",
     "syntactic_category": "noun"
+  },
+  "huim'huate": {
+    "roots": {
+      "huim": "small",
+      "huat": "heat, hot"
+    },
+    "meaning": "warm",
+    "syntactic_category": "adjective"
   }
 }
