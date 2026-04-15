@@ -1790,5 +1790,17 @@
         "meaning": "sunny"
       }
     }
+  },
+  "lial": {
+    "forms": {
+      "liala": {
+        "category": "noun",
+        "meaning": "ascension, rise"
+      },
+      "lialu": {
+        "category": "verb",
+        "meaning": "to rise, to ascend"
+      }
+    }
   }
 }
