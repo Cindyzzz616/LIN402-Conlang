@@ -1,72 +1,4 @@
 {
-  "pup-sak-a": {
-    "roots": {
-      "pup": "parent",
-      "sak": "male"
-    },
-    "meaning": "father",
-    "syntactic_category": "noun"
-  },
-  "pup-san-a": {
-    "roots": {
-      "pup": "parent",
-      "san": "female"
-    },
-    "meaning": "mother",
-    "syntactic_category": "noun"
-  },
-  "tum-sak-a": {
-    "roots": {
-      "tum": "sibling",
-      "sak": "male"
-    },
-    "meaning": "brother",
-    "syntactic_category": "noun"
-  },
-  "tum-sak-les-a": {
-    "roots": {
-      "tum": "sibling",
-      "sak": "male",
-      "les": "old"
-    },
-    "meaning": "older brother",
-    "syntactic_category": "noun"
-  },
-  "tum-sak-lem-a": {
-    "roots": {
-      "tum": "sibling",
-      "sak": "male",
-      "lem": "young/new"
-    },
-    "meaning": "younger brother",
-    "syntactic_category": "noun"
-  },
-  "tum-san-a": {
-    "roots": {
-      "tum": "sibling",
-      "san": "female"
-    },
-    "meaning": "sister",
-    "syntactic_category": "noun"
-  },
-  "tum-san-les-a": {
-    "roots": {
-      "tum": "sibling",
-      "san": "female",
-      "les": "old"
-    },
-    "meaning": "older sister",
-    "syntactic_category": "noun"
-  },
-  "tum-san-lem-a": {
-    "roots": {
-      "tum": "sibling",
-      "san": "female",
-      "lem": "young/new"
-    },
-    "meaning": "younger sister",
-    "syntactic_category": "noun"
-  },
   "tas'niula": {
     "roots": {
       "tas": "sky, high",
@@ -196,7 +128,7 @@
       "mian": "masculinity, male",
       "miuh": "parent, parental"
     },
-    "meaning": "father",
+    "meaning": "father, dad",
     "syntactic_category": "noun"
   },
   "maik'miuha": {
@@ -204,7 +136,7 @@
       "maik": "femininity, female",
       "miuh": "parent, parental"
     },
-    "meaning": "mother",
+    "meaning": "mother, mom",
     "syntactic_category": "noun"
   }
 }
