@@ -171,5 +171,13 @@
     },
     "meaning": "warm",
     "syntactic_category": "adjective"
+  },
+  "huim'haune": {
+    "roots": {
+      "huim": "small",
+      "haun": "cold"
+    },
+    "meaning": "cool",
+    "syntactic_category": "adjective"
   }
 }
