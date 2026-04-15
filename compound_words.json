@@ -198,5 +198,13 @@
     },
     "meaning": "father",
     "syntactic_category": "noun"
+  },
+  "maik'miuha": {
+    "roots": {
+      "maik": "femininity, female",
+      "miuh": "parent, parental"
+    },
+    "meaning": "mother",
+    "syntactic_category": "noun"
   }
 }
