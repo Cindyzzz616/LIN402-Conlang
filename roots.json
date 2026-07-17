@@ -1810,5 +1810,13 @@
         "meaning": "meaning"
       }
     }
+  },
+  "piut": {
+    "forms": {
+      "piuta": {
+        "category": "noun",
+        "meaning": "road, path"
+      }
+    }
   }
 }
